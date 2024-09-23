@@ -22,6 +22,7 @@ public class LecturaDatos {
         int a;
         float b;
         
+        System.out.println("Bienvenido");        
         System.out.println("Dame una cadena: "); // Muestra una cadena
         s = in.nextLine();
         System.out.println("Usted ingrese una cadena: " +s);
