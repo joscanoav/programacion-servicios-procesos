@@ -17,6 +17,18 @@ public class LeerCadenasOperar {
      */
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
+        String cadena1,cadena2;
+        System.out.println("Dame una cadena");
+        cadena1=teclado.nextLine();//cadena con caracteres en blanco
+        System.out.println(cadena1);
+        System.out.println("Dame una cadena");
+        cadena2=teclado.next();// cadena hasta blanco
+        System.out.println(cadena2);
+        //if(cadena1=cadena2) - siempre se compara == mejor usa equals
+        
+        if(cadena1.equals(cadena2)){
+            System.out.println("Son la misma cadena");
+        }
         
     }
     
