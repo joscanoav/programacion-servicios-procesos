@@ -1,2 +1,4 @@
 .class
 target/
+/procesos-hilos/nbproject/private/
+/procesos-hilos/build/
