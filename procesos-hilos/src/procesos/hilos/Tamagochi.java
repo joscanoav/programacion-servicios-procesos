@@ -29,4 +29,67 @@ public class Tamagochi {
         tRey.start();
     }
     
+    public static void crearREY(){
+        String Nombre;
+        int Edad, Tarea;
+        
+        System.out.println("---------REY--------");
+        System.out.println("Nombre: ");
+        Nombre = EcanerSTR.nextLine();
+        System.out.println("Edad: ");
+        Edad = EscanerINT.nextInt();
+        System.out.println("Tareas: ");
+        System.out.println("1-Comer");
+        System.out.println("2-Dormir");
+        System.out.println("3-Jugar");
+        Tarea = EscanerINT.nextInt();
+        
+        switch(Tarea){
+            case 1:
+                Rey = new TareasRey(Nombre,Edad,"Comer");
+                break;
+            case 2:
+                Rey = new TareasRey(Nombre,Edad,"Dormir");
+                break;
+            case 3:
+                Rey = new TareasRey(Nombre, Edad, "Jugar");
+                break;
+            default:
+                System.out.println("OPCION NO VALIDAD");
+                break;
+        }
+              
+    }
+    
+    public static void crearESCLAVO(){
+        String Nombre;
+        int Edad, Tarea;
+        
+        System.out.println("---------ESCLAVO--------");
+        System.out.println("Nombre: ");
+        Nombre = EcanerSTR.nextLine();
+        System.out.println("Edad: ");
+        Edad = EscanerINT.nextInt();
+        System.out.println("Tareas: ");
+        System.out.println("1-Comer");
+        System.out.println("2-Dormir");
+        System.out.println("3-Servir");
+        Tarea = EscanerINT.nextInt();
+        
+        switch(Tarea){
+            case 1:
+                Esclavo = new TareasEsclavo(Nombre,Edad,"Comer");
+                break;
+            case 2:
+                Esclavo = new TareasEsclavo(Nombre,Edad,"Dormir");
+                break;
+            case 3:
+                Esclavo = new TareasEsclavo(Nombre, Edad, "Servir");
+                break;
+            default:
+                System.out.println("OPCION NO VALIDAD");
+                break;
+        }
+    }
+    
 }
