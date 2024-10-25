@@ -26,7 +26,8 @@ public class Tamagochi {
         
         Thread tREY = new Thread(Rey);
         Thread tESCLAVO = new Thread(Esclavo);
-        tRey.start();
+        tREY.start();
+        tESCLAVO.start();
     }
     
     public static void crearREY(){

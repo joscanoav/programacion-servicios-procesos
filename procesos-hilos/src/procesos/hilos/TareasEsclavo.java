@@ -23,21 +23,21 @@ public class TareasEsclavo extends Personaje implements Runnable{
                 case "Comer":
                         System.out.println("Soy "+this.getNombre()+" y empiezo a comer");
                         Thread.sleep(((int)(Math.random()*10))*1000);
-                        System.out.println("Soy "+this.getNombre()+ "estoy comiendo");
+                        System.out.println("Soy "+this.getNombre()+ " estoy comiendo");
                         Thread.sleep(((int)(Math.random()*10))*1000);
                         System.out.println("Soy "+this.getNombre()+ " y ya he comido");
                         break;
                 case "Dormir":
                         System.out.println("Soy "+this.getNombre()+" y empiezo a dormir");
                         Thread.sleep(((int)(Math.random()*10))*1000);
-                        System.out.println("Soy "+this.getNombre()+ "estoy durmiendo");
+                        System.out.println("Soy "+this.getNombre()+ " estoy durmiendo");
                         Thread.sleep(((int)(Math.random()*10))*1000);
                         System.out.println("Soy "+this.getNombre()+ " y ya he dormido");
                         break;
                 case "Servir":
                         System.out.println("Soy "+this.getNombre()+" y empiezo a servir");
                         Thread.sleep(((int)(Math.random()*10))*1000);
-                        System.out.println("Soy "+this.getNombre()+ "estoy serviendo");
+                        System.out.println("Soy "+this.getNombre()+ " estoy serviendo");
                         Thread.sleep(((int)(Math.random()*10))*1000);
                         System.out.println("Soy "+this.getNombre()+ " y ya he servido");
                         break;
