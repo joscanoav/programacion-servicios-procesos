@@ -11,3 +11,5 @@ target/
 /socket_bot/build/
 /procesos_uf3_socket/nbproject/private/
 /procesos_uf3_socket/build/
+/calculadora_cliente_servidor/nbproject/private/
+/calculadora_cliente_servidor/build/
