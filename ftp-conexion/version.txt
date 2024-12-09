@@ -1,0 +1,1788 @@
+Wing FTP Server v7.3.3              Released: 27/Mar/2024
+--------------------------------------------------------------
+Added a feature - Now you can export the audit records to a CSV file under "Audit & Report".
+Improvement -  Now you can add a "Every 5-minute" task in the Task Scheduler.
+Improvement - Improved the Task Scheduler's process, now every task will start a new thread.
+Improvement - Improved the function of the plugin "Send Files" in the web client. 
+Fixed a bug - When set the max log size >= 4194303 KB, WingFTP will stop writing logs.
+Fixed a bug - When Anti-Hammer option is enabled, weblinks with password won't reset the password attempts.
+
+
+Wing FTP Server v7.3.1              Released: 27/Feb/2024
+--------------------------------------------------------------
+Fixed a bug - Some SFTP client can't connect to WingFTP with an error "failed to exchange keys", caused by the host key algorithm's order.
+Improvement -  Improved setup script for Linux version, now WingFTP can be compatible with RHEL 9.x/Rocky 9.x.
+Fixed a bug - Cannot record the file size or filename for the SFTP download/upload in the audit database occasionally.
+Fixed a bug - The variables "%FileName", "%PathName", "%FileSize" will be empty in the SFTP download/upload event occasionally.
+Fixed a bug - When running WingFTP in some Linux system, Web client may popup an error "no permission" when moving multi-files under the root folder.
+
+
+Wing FTP Server v7.3.0              Released: 2/Jan/2024
+--------------------------------------------------------------
+Improvement -  Filezilla will get stuck occasionally when uploading files via FTPS/FTPES protocol.
+Improvement - Removed SSH cipher "chacha20-poly1305" to avoid SSH Terrapin attacks (CVE-2023-48795).
+Improvement - Improved the web client interface for the file listing and search window.
+Fixed a bug - Fixed a possible crash when transferring files via FTP protocol.
+Fixed a bug - Web client can't remember the selected language in the login page.
+
+
+Wing FTP Server v7.2.8              Released: 30/Nov/2023
+--------------------------------------------------------------
+Improvement -  Added a function "Video Preview" for the weblink download page.
+Fixed a bug - Client will always see the file request page, even if the option "Enable file request link" is turned off.
+Fixed a bug -  The sockets will increase rapidly when an exception "transport endpoint is not connected" occurs.
+Improvement -  When closing a domain under WingFTP's administration, Wing Gateway will update the related listeners immediately.
+
+
+Wing FTP Server v7.2.7              Released: 18/Oct/2023
+--------------------------------------------------------------
+Fixed a bug - With some SFTP client, the downloaded file might be corrupted. This bug was introduced in v7.2.6.
+Improvement - Added an option "Case insensitive for the mapping string" for the LDAP user mapping.
+
+
+Wing FTP Server v7.2.6              Released: 9/Oct/2023
+--------------------------------------------------------------
+Fixed a bug - Fixed a possible stuck issue for SFTP file transfer.
+Improvement -  SFTP server can't be connected by the SFTP client "WS_FTP Pro" in the previous versions.
+Improvement - When user data file is malformed, the user data now can be recovered by "xxx.bakfile" file automatically.
+Improvement - When sending emails, now will use "BCC" instead of "TO" for multiple recipients.
+Improvement -  Improved the multiple languages display for the web client function "Send Files".
+
+
+Wing FTP Server v7.2.5              Released: 15/Sep/2023
+--------------------------------------------------------------
+Improvement - Increased the maximum of available open handles per SFTP session.
+Improvement - Added a system option "Disallow OpenSSL session caching".
+Improvement - Added a system option "Disallow OpenSSL session resumption on renegotiation".
+Fixed a bug - When existing pictures with the same filename under different subfolders, you will always see the first picture in web client.
+Fixed a bug - When uploading a picture to overwrite the old one, you will still download or see the old picture due to browser cache.
+
+
+Wing FTP Server v7.2.4              Released: 9/Aug/2023
+--------------------------------------------------------------
+Fixed a bug - When using Active (PORT) mode in FTPS transfer, the service might crash under some special conditions.
+Fixed a bug - When adding a Wing Gateway with an existing port (but is not Gateway's), the service might crash.
+Improvement -  When generating or viewing the weblink for a banned file, now it will show the error message "banned file".
+Improvement - Improved the security and process speed for the web admin's session ID.
+Improvement - Improved the process speed for the web client's session ID.
+
+
+Wing FTP Server v7.2.3              Released: 30/Jun/2023
+--------------------------------------------------------------
+Improvement - Now you can open video/audio files, PDF/text files directly under web client's search result.
+Improvement - Added a feature "Open file location" in the right-click menu under web client's search result.
+Improvement - The online text editor in web client now supports editing 1MB text file.
+Improvement - Improved right-click menu in web client, and added an item "Add bookmark" for the subfolder.
+Fixed a bug - In the weblink interface and web client's search result, sorting by filename is not in alphabetical order.
+Fixed a security bug - DomainA's admin can fetch DomainB's user data by using some external tool.
+Fixed a security bug -  Fixed a DOM XSS vulnerability related to the online text editor in web client.
+Improvement - Hide some information and error messages in web admin for read-only/domain admin.
+Improvement - Added a HTTP header "Cache-Control" to avoid storing html files in the browser.
+Improvement - Removed unnecessary UID (Session ID) strings in web client.
+Improvement - Added a warning message when adding a domain admin with an empty base folder.
+
+
+Wing FTP Server v7.2.1              Released: 6/May/2023
+--------------------------------------------------------------
+Fixed a bug - The WingFTP service will crash when testing ODBC with a wrong ODBC source.
+Fixed a bug -  When editing a user, pressing Tab to the password field will hide the new password.
+Improvement -  During installation on Windows Server Core, you will be asked to start WingFTP service instead of tray application.
+Improvement - The Web Client text editor now supports syntax highlighting for .cs, .vbs, .cxx, .resx, .pm files.
+Improvement - When writing the uploaded file fails (SFTP protocol), the temp uploaded file will be removed.
+Improvement - Updated libssh to the latest version.
+
+
+Wing FTP Server v7.2.0              Released: 20/Mar/2023
+--------------------------------------------------------------
+Now support FastUDP mode for Wing Gateway's HTTPS listener, it is designed to accelerate file transfers for high latency network.
+Fixed a bug - The SFTP server might crash when using WinSCP with some special parameters.
+Improvement - Cannot add/modify or delete the domain listeners occasionally.
+Improvement - Clicking the button "Clear Log" or "Kick All" won't take effect sometimes.
+Improvement - Simplified the UI for the SSL certificate creation.
+
+
+Wing FTP Server v7.1.9              Released: 6/Mar/2023
+--------------------------------------------------------------
+Fixed a bug - Fixed two CSRF vulnerabilities in web administration/web client.
+Fixed a bug - Fixed a DOM XSS vulnerability related to Weblink in web client.
+Fixed a bug - SFTP server will return an error "File can not be locked" occasionally.
+Improvement - All the admin sessions will be cleaned up after restarting WingFTP service.
+
+
+Wing FTP Server v7.1.8              Released: 10/Feb/2023
+--------------------------------------------------------------
+Improvement - Updated OpenSSL and fixed a few OpenSSL vulnerabilities like CVE-2023-0286, CVE-2023-0215.
+Fixed a bug - Cannot specify the custom file path for server/domain/admin logs.
+Improvement - Now you can search weblinks by the username under WebLink Manager.
+Improvement - Increased the socket timeout when accepting the connection from Wing Gateway.
+
+
+Wing FTP Server v7.1.7              Released: 20/Dec/2022
+--------------------------------------------------------------
+Added a feature - Now support two-factor authentication (TOTP) for the web administration.
+Fixed a bug - WingFTP should terminate the related admin sessions when removing an admin account.
+Fixed a bug - Now WingFTP will terminate the related online sessions when disabling a user account.
+Improvement - Updated the Help Document for the administration.
+Improvement - Shows the last 5 login history under "Administrator -> Accounts".
+
+
+Wing FTP Server v7.1.6              Released: 1/Dec/2022
+--------------------------------------------------------------
+Added a feature - Added a function "View/Edit Office Files" in web client, now you can view/edit office files locally (it requires the Google Chrome extension "Office Editing for Docs, Sheets & Slides").
+Added a feature - Added a function "Rotate" in web client's Picture Viewer, you can use it for rotating image.
+Fixed a bug - The domain log files might be stored in a wrong place occasionally.
+Fixed a bug - Web client will print out error message when opening a specific URL.
+Improvement - Increased the default domain log size into 512MB.
+
+
+Wing FTP Server v7.1.5              Released: 27/Sep/2022
+--------------------------------------------------------------
+Improvement - Improved the Lua script editor in Event Manager and Task Scheduler, now supports syntax highlighting.
+Improvement - The HTTP Event "OnUserDisconnect" won't be triggered when closing the web browser directly.
+Fixed a bug - Unzip operation may abort due to the internal filename's encoding.
+Improvement - The filename of server logs might be wrong in some situation.
+Improvement - The text editor in web client now supports syntax highlighting for Lua script.
+
+
+Wing FTP Server v7.1.4              Released: 7/Sep/2022
+--------------------------------------------------------------
+Fixed a bug - Can't download a file which filename includes special characters, this bug was introduced in v7.1.3.
+Fixed a bug - Can't jump into a subfolder which folder name includes special characters, this bug was introduced in v7.1.3.
+Improvement - Now supported milliseconds timestamp for domain logs, you can enable the option "Domain > Settings > General Settings > Domain Log > Display timestamp with milliseconds".
+Improvement - Now will flush SSH debug logs into the file "Log/ssh_debug_log", previously writing debug logs might be delayed.
+Improvement - The read-only admin or domain admin now can't see the detailed weblink under "Audit & Report".
+
+
+Wing FTP Server v7.1.3              Released: 29/Aug/2022
+--------------------------------------------------------------
+Fixed a bug - When using ODBC storage with an Oracle database, you may encounter an issue "ORA-01000: maximum open cursors exceeded".
+Fixed a bug -  If clients don't send "OPTS UTF8 ON" or "CLNT" request, FTP transfer may fail with a Chinese (or non-English) filename.
+Improvement - Now support opening items (like editing a user) by double clicking in the Tray application.
+Improvement - Improved the local encoding compatibility when disabling the FTP option "OPTS UTF8 ON".
+Improvement - FTP server will return an empty result even if there is no LIST permission.
+Improvement - Improved the user listing interface when using ODBC/Mysql database.
+
+
+Wing FTP Server v7.1.2              Released: 9/Aug/2022
+--------------------------------------------------------------
+Fixed a bug - Can't startup WingFTP service in Windows Server 2019 (with the latest update installed).
+Improvement - Now you can get the value for variable "%Name" in the event OnExceedUSERPASS.
+Improvement - Now anti-hammering feature will be available when using SSH public key authentication.
+Improvement - Removed SITE MSG command and improved SITE HELP command.
+Fixed a bug - Sometimes cannot open the page "Purchase" or "Install Update" with the tray application.
+
+
+Wing FTP Server v7.1.1              Released: 4/Jul/2022
+--------------------------------------------------------------
+Improvement - Added a system option "SQLite DB Folder", it is used to specify a folder for storing SQLite db file "bookmark_db".
+Improvement - Added a button "Clear Log" under Server Log/Admin Log interface.
+Improvement - Will update the field "Expired" in real time in the WebLink Manager interface.
+Fixed a bug - Cannot print the html tags in the Administration Console interface.
+
+
+Wing FTP Server v7.1.0              Released: 10/Jun/2022
+--------------------------------------------------------------
+Improvement - Added a Copy function under admin's Audit & Report.
+Improvement - The admin password specified in installation wizard will be hashed by salted SHA-256.
+Fixed a bug - The case-insensitive username in Windows may cause weblink generating issues.
+Fixed a bug - The installation wizard will generate unwanted xml-e files in Mac OS.
+Fixed a bug - The field "Expired" in WebLink Manager may show incorrect information.
+
+
+Wing FTP Server v7.0.9              Released: 24/May/2022
+--------------------------------------------------------------
+Added a feature - Added password salting in the domain settings, it is used to protect the user password.
+Fixed a bug - The WingFTP service may crash due to "Transport endpoint is not connected" exception.
+Fixed a bug - When overwriting a 0-byte file via FTP upload, but the file modification date will keep the same as the first one.
+Improvement - Improved the URL address generated by Weblink Copy function.
+
+
+Wing FTP Server v7.0.8              Released: 10/May/2022
+--------------------------------------------------------------
+Fixed a bug - The weblink's expiration date will change when the client is in a different time zone than the server.
+Fixed a bug - If user already logged in web client, WebLink/UploadLink can't be opened from an external website.
+Improvement - Added a Weblink Copy function under admin's WebLink Manager.
+Improvement - Reverted the function "Go to directory" in web client.
+Improvement - Now supported variables "%MM", "%DD" and "%HH" for server log's filename.
+
+
+Wing FTP Server v7.0.7              Released: 22/Apr/2022
+--------------------------------------------------------------
+Fixed a bug - When enabling Windows Data Deduplication service, the file download might be failed in web client.
+Fixed a bug - When enabling Windows Data Deduplication service, the files/folders copy might be failed.
+Improvement -  Now the folder size will be shown as "-" instead of "0" in web client.
+Improvement - Improved the weblink interface for a folder.
+
+
+Wing FTP Server v7.0.6              Released: 13/Apr/2022
+--------------------------------------------------------------
+Fixed a bug - After re-installing Wing FTP Server, the customized logo will be reset.
+Improvement -  SFTP download might be failed with Cyberduck, due to its segmented downloads option.
+Improvement -  Failed to download big files via FTP protocol with Cyberduck, caused by its segmented downloads.
+Improvement - When using ODBC/Mysql database, the user listing will show the expiration date even account doesn't expire.
+
+
+Wing FTP Server v7.0.5              Released: 31/Mar/2022
+--------------------------------------------------------------
+Improvement - Updated the OpenSSL lib for fixing CVE-2022-0778.
+Improvement - Now the web client will prevent recursive copy files/folders.
+Improvement - Audit report records added new actions "Change Password" and "Copy Files".
+Improvement - Now separated the admin logs for adding user/group and modifying user/group.
+
+
+Wing FTP Server v7.0.4              Released: 9/Mar/2022
+--------------------------------------------------------------
+Improvement - AD/LDAP user now can use two-factor authentication via the mapped local user.
+Improvement - Now you can download files/folders via the browser extension "Wing Download Manager" in InPrivate mode (Incognito mode).
+Fixed a bug - Cannot see the audit report records when domain name includes upper-case letters.
+Improvement - AD/LDAP user will use the domain settings "idle connection timeout" and "transfer connection timeout".
+Improvement - Disabled weak SSL/SSH ciphers (or algorithms) by the default settings.
+
+
+Wing FTP Server v7.0.3              Released: 23/Feb/2022
+--------------------------------------------------------------
+Improvement - With many FTP concurrent sessions, the variable "%FileSize" might not be replaced in the FTP event "OnFileUploaded".
+Improvement - The default domain setting "idle connection timeout" and "transfer connection timeout" is changed to "5min", and the same setting for a new user will inherit the domain setting.
+Fixed a bug - User can't login to the web client if user password includes "%20".
+Fixed a bug - Admin can't login to the web administration if admin password includes "%20".
+Improvement - The read-only admin can't test "ODBC/Mysql/LDAP/SMTP" connection now.
+
+
+Wing FTP Server v7.0.2              Released: 24/Jan/2022
+--------------------------------------------------------------
+Improvement - Improved the FTP client compatibility, the old versions can't handle multiple FTP commands in one packet.
+Improvement - Added two Lua APIs "c_MoveFileDir" and "c_CopyFileDir", for moving/copying a file or folder.
+Improvement - Improved the web client UI for the desktop version.
+Improvement - Improved the web client UI for the mobile version.
+Fixed a bug - Can't show the web client menu "More Actions" correctly with some mobile device.
+
+
+Wing FTP Server v7.0.1              Released: 14/Dec/2021
+--------------------------------------------------------------
+Improvement - Added 64-bit Windows build.
+Improvement - Designed a new user interface for Web Client.
+Improvement - Improved the interface of Web Administration.
+Improvement - No longer support 32-bit Windows and 32-bit Linux.
+Improvement - Improved the Help Manual for Web Client.
+Improvement - Updated libssh to the latest version.
+Fixed a few bugs about HTTP connection and GUI.
+
+
+Wing FTP Server v6.6.5              Released: 8/Nov/2021
+--------------------------------------------------------------
+Improvement - Add an option "Disallow access all day" when adding access schedule for user account.
+Improvement - The syntax highlight under web client editor will become blurred when using Safari.
+Fixed a bug - The file request page will show the receiver email instead of the sender email.
+Fixed a bug - Can't remove some user (or group) with special non-English character username.
+Improvement - When uploading files under the web client, no error message popped up even the session expired.
+Improvement - Safari will always show the Autofill Password when editing user account under the web admin.
+
+
+Wing FTP Server v6.6.4              Released: 21/Oct/2021
+--------------------------------------------------------------
+Improvement - Now the subfolders in the weblink download page can be accessible.
+Fixed a bug - Cannot show the session list under "Domain > Logs & Status > Activity" when file name contains special characters.
+Fixed a bug - When drag any toolbar button in the web client, the file uploader interface will be popped up.
+Fixed a bug - When the event "OnFileBanned" is triggered in the file upload/download, the server variable "%PathName" or "%FileName" might be empty.
+
+
+Wing FTP Server v6.6.3              Released: 11/Oct/2021
+--------------------------------------------------------------
+Improvement - Add a domain option "TLS session timeout" for TLS session resumption.
+Fixed a bug - Fixed a potential XSS vulnerability in the web client.
+Improvement - Sort up/Sort down icon will disappear when refreshing or changing the directory.
+Improvement - Updated the Help Document for the web client.
+
+
+Wing FTP Server v6.6.2              Released: 14/Sep/2021
+--------------------------------------------------------------
+Improvement - Updated OpenSSL and fixed a few OpenSSL vulnerabilities like CVE-2020-1971, CVE-2021-3712.
+Fixed a bug - When downloading a file in the web client, it will always finish downloading even exceeding disk quota or transfer limitation.
+Fixed a bug - The console application (wftpconsole) can't work correctly, this bug was introduced in v6.5.6.
+Fixed a bug - When uploading an entire folder in the web client, it will always show OK even have no "Create Folder" permission.
+Improvement - When uploading files in the web client, now it will popup an error message if exceeding disk quota or transfer limitation.
+
+
+Wing FTP Server v6.6.1              Released: 31/Aug/2021
+--------------------------------------------------------------
+Added a feature - Now support two-factor authentication (TOTP) for the web client.
+Improvement - When login the SFTP server with the recent version of Filezilla (or putty), can't show the file listing if the remote folder includes thousands of files.
+Improvement - For Web Client Zip/Unzip function, now use UTF-8 encoding for the internal filenames, to solve the garbled filenames issue for some file archiver.
+Improvement - The weblink download will be considered as a web session, then total session number can be limited under domain settings.
+Fixed a bug - When upload a banned file in the web client, the progress bar will always be displayed (won't disappear).
+Improvement - Updated libssh to the latest version.
+
+
+Wing FTP Server v6.5.9              Released: 11/Aug/2021
+--------------------------------------------------------------
+Fixed a bug - Can not get the server variable "%PathName" and "%FileName" in the SSH event "BeforeFileUploaded".
+Improvement - Linux/Unix sftp might return an error "Received message too long" when the remote folder includes 900+ files and each file has a long filename. 
+Improvement - Added a system option "Restrict a user session to a single IP address". When the client IP changes frequently, you may consider to disable it.
+Improvement - When the server time is incorrect, the HTTP(S) login page might be refreshed always.
+Improvement - Updated Bootstrap and jQuery libraries into the latest version.
+
+
+Wing FTP Server v6.5.8              Released: 14/Jul/2021
+--------------------------------------------------------------
+Improvement - The online editor in the web client now supports syntax highlight for C/C++, XML/HTML, Java, PHP, Javascript, Python, Perl, Ruby, Golang.
+Fixed a bug - The online editor in the web client won't prompt on close when file content is modified.
+Fixed a bug - When turn on the domain option "Redirect HTTP to HTTPS automatically", the weblink of a folder can't redirect correctly.
+Fixed a bug - When enable the option "Using Windows NTFS permissions for the home directory" for Windows/AD authentication, the mapped local user's folder permissions will be ignored.
+
+
+Wing FTP Server v6.5.7              Released: 18/Jun/2021
+--------------------------------------------------------------
+Added a Firefox extension "Wing Download Manager", for downloading multiple files/folders in the web client: https://addons.mozilla.org/firefox/addon/wing-download-manager/
+Improvement - For the time parameter of the FTP command "MFMT/MFCT/MFF", now it will be as a UTC time.
+Improvement - Added a download button under image viewer interface in web client.
+
+
+Wing FTP Server v6.5.6              Released: 31/May/2021
+--------------------------------------------------------------
+Improvement - Uploading files/folder intermittently freezes in Google Chrome version 91.0.4472.77.
+Improvement - Improved the sending file interface for mobile version web client, and now you can specify a password for the weblink.
+Fixed a bug - When sending weblink of a folder under mobile version web client, the generated weblink won't work.
+
+
+Wing FTP Server v6.5.5              Released: 24/May/2021
+--------------------------------------------------------------
+Added a feature - Now you can upload an entire folder in the web client.
+Improvement - "Search" function under "Domain -> Users" will list all the matched users now, you can use wildcard character "*" for username.
+Improvement - "Search" function under "Domain -> Groups" will list all the matched groups now, you can use "*" for the group name.
+
+
+Wing FTP Server v6.5.4              Released: 12/May/2021
+--------------------------------------------------------------
+Improvement - Added a column "File" (the last accessed file) under "Domain > Logs & Status > Activity".
+Improvement - Will ignore max session number limitation if the current session's IP is in the whitelist.
+Added a feature - Added an option "Kill the sessions from the same IP address" under "Domain > Logs & Status > Activity > Kick a session".
+Fixed a bug - When downloading folders with Chrome extension, the hidden files will still be listed, even if the user option "Show files/dirs with hidden attribute" is disabled.
+Fixed a bug - For the Linux version, when creating weblink/upload link without expiration date, the weblink in Weblink Manager still shows "Expired".
+Fixed a bug - When kicking a session with "Disable user account" option, the user account will still be enabled actually.
+Fixed a bug - Can't stop the WingFTP service by Linux command "/etc/init.d/wftpserver stop", when service is started by the systemd startup script "wftpserver.service".
+Improvement - Removed the functions "Broadcast", "Chat" and "Send message to user" under "Domain > Logs & Status > Activity".
+Improvement - Removed the option "Domain > Settings > General Settings > Data Transfer Limit > Weblink options -> Maximum Speed", you can use the above option "Maximum download speed per session" instead.
+
+
+Wing FTP Server v6.5.2              Released: 26/Apr/2021
+--------------------------------------------------------------
+Added a Google Chrome extension "Wing Download Manager", for downloading multiple files/folders in the web client.
+Improvement - Added systemd startup script "wftpserver.service" for Linux system.
+Improvement - Improved the web client uploader, fixed some issues.
+Improvement - For the SFTP protocol, WinSCP might return an error "Received too large SFTP packet" when the remote folder includes 10000+ files. 
+
+
+Wing FTP Server v6.5.1              Released: 7/Apr/2021
+--------------------------------------------------------------
+Improvement - Now you can use server variables in the HTTP welcome message.
+Improvement - Now supported full window Drag&Drop files in the web client.
+Improvement - Added a few server variables: %mm, %ss, %UserName, %UserNote
+Improvement - Updated libssh to the latest version.
+
+
+Wing FTP Server v6.5.0              Released: 18/Mar/2021
+--------------------------------------------------------------
+Added a feature - Added IP Whitelisting for allowing specific IPs to access server without any limitation.
+Added a feature - Added a FTP command "SSCN" to support secure FXP (server to server) transfer.
+Improvement - Added a "Comment" field for Domain/Server IP access rule.
+Improvement - Updated the Help Manual for the web administrator.
+
+
+Wing FTP Server v6.4.9              Released: 16/Feb/2021
+--------------------------------------------------------------
+Improvement - Updated libssh to the latest version for improving SFTP server stability.
+Improvement -  When changing the user password, the new password can't be the same as the previous one.
+Improvement - Windows version may crash due to "stack overflow" exception, though such issue is very rare.
+Improvement -  If upgrade from an old version with a large "audit_db" file, will skip creating the new database indexes.
+
+
+Wing FTP Server v6.4.8              Released: 15/Jan/2021
+--------------------------------------------------------------
+Improvement -  IE browser can't upload file because Windows removed Flash support since 12/Jan/2021, now use HTML Uploader instead of Flash Uploader.
+Improvement - Added weblink search function under Weblink Manager interface.
+
+
+Wing FTP Server v6.4.7              Released: 29/Dec/2020
+--------------------------------------------------------------
+Fixed a bug - Fix the Year 2038 problem, can't change the modified time of a file to year 2038 or later.
+Fixed a bug - Can't set the expiration date of an user to year 2038 or later.
+Fixed a bug - Can't set the expiration date of a weblink (or upload link) to year 2038 or later.
+Fixed a bug - HTTP/HTTPS session can't keep alive in some situation.
+Added a domain option "HTTP/HTTPS session keep-alive". If you disable it, the HTTP session will expire after 10 minutes of browser inactivity.
+
+
+Wing FTP Server v6.4.6              Released: 11/Dec/2020
+--------------------------------------------------------------
+Fixed a bug - Sending email might be failed when SMTP password (or username) is too long.
+Improvement - Now you can define your own SSH (SFTP) banner in the domain settings.
+Fixed a bug - Fixed a possible memory leak issue on errors during SFTP key exchange.
+
+
+Wing FTP Server v6.4.5              Released: 17/Nov/2020
+--------------------------------------------------------------
+Improvement - For the weblink of a folder, added two columns "Size" and "Modified" for the file listing, and columns can be sorted now.
+Improvement - Zip multiple files/folders in the web client may cause an error "too many source files".
+Fixed a bug - When importing weblink data from old version (before v6.2.2), the imported data might be incomplete.
+Fixed a bug - The weblink downloading replaces all the spaces with plus (+) symbols in the filename.
+Fixed a bug - Fixed a potential XSS vulnerability in the help manual of the web admin and web client.
+
+
+Wing FTP Server v6.4.4              Released: 19/Oct/2020
+--------------------------------------------------------------
+Fixed a bug - Invalid modified date of existed file may cause service crash.
+Fixed a bug - When downloading file with Safari, non-English file name might be URL encoded.
+Fixed a bug - WingFTP service will hang and won't accept any connection under some system.
+Improvement - Added a server variable "%Protocol" - The protocol type of current session.
+Improvement - Add persistent confirmation to "File Upload Request" feature.
+Improvement - Possible to change the supported SSH host key algorithms.
+
+
+Wing FTP Server v6.4.3              Released: 24/Sep/2020
+--------------------------------------------------------------
+Fixed a bug - When port is used by other program under certain OS, many repeated domain logs will generate or WingFTP service will freeze.
+Fixed a bug - When running Wing Gateway on the same machine, the connection from local machine might not be handled properly.
+Added a domain option "Overwrite the existed file when uploading file via file request link".
+
+
+Wing FTP Server v6.4.2              Released: 14/Sep/2020
+--------------------------------------------------------------
+Fixed a bug - When removing subfolder under web client, the disk quota won't be decreased.
+Improvement - Limit simultaneous time-consuming operations (Zip/Unzip/Copy) by the worker threads number.
+Improvement - Use multi-threads to send email (includes Lua API) to avoid blocking.
+Improvement - Set the default worker threads into 8, and max worker threads can be 256 now.
+Improvement - With the new version of Google Chrome, the time picker and email input box can't work correctly.
+
+
+Wing FTP Server v6.4.1              Released: 18/Aug/2020
+--------------------------------------------------------------
+Fixed a bug - The tray application will popup an error message "Access is denied".
+Improvement - Improved the Korean language translation.
+Improvement - Updated libssh to the latest version for improving SFTP server stability.
+Improvement - Allowed different client IP for the FTP PORT command, in local area network.
+
+
+Wing FTP Server v6.4.0              Released: 14/Jul/2020
+--------------------------------------------------------------
+Improvement - Enhanced the listing performance of Audit Report.
+Improvement - Now the web client will remember the column width of List View.
+Fixed a bug - When compressing a folder under web client, if the folder includes file with Chinese (or non-English) filename, it will fail.
+Improvement - Improved the search file speed under web client.
+Fixed a bug - Can't add Wing Gateway with IP address "127.0.0.1".
+
+
+Wing FTP Server v6.3.9              Released: 29/Jun/2020
+--------------------------------------------------------------
+Fixed a bug - The tray application will stop working when binding web admin's listener on a LAN IP.
+Fixed a bug -  The new added listener will always be green mark even the listener port is not available.
+Fixed a bug - Fixed a possible crash when removing the running Wing Gateway node.
+Improvement -  Now will use SHA-256 hash by default for the admin/user password.
+Improvement -  Now will log banned IP attempts for the HTTP/HTTPS protocols.
+
+
+Wing FTP Server v6.3.8              Released: 18/Jun/2020
+--------------------------------------------------------------
+Added PDF viewer in the web client, now you can view the PDF file online by double-clicking it.
+Fixed a bug - The upload link won't be deleted when removing a folder.
+Fixed a bug - The upload link won't be deleted when renaming a folder.
+Other minor improvements, like read-only admin permission changes.
+
+
+Wing FTP Server v6.3.7              Released: 5/Jun/2020
+--------------------------------------------------------------
+Improvement -  When auto-forwarding active mode ports with Wing Gateway, the socket resources won't release quickly.
+Improvement - Supported for handling FTP command "QUIT" before login or during data transferring.
+Improvement - When making weblink/upload link, it will popup an error message if exceeding disk quota.
+Improvement - Can't send weblink for a folder under mobile UI of the Web Client.
+Improvement - Increased the max lines of the domain logs which displayed under "Domain > Logs & Status > Domain Log".
+
+
+Wing FTP Server v6.3.6              Released: 28/May/2020
+--------------------------------------------------------------
+Fixed a bug - Copy files/folders under web client, won't increase disk quota.
+Fixed a bug - Disk quota doesn't change correctly when removing some folder (or unzip file).
+Fixed a bug - The domain log includes a wrong session ID, when download/upload a file in web client.
+Fixed a bug - When download file via a weblink, the transfer quota won't increase.
+
+
+Wing FTP Server v6.3.5              Released: 20/May/2020
+--------------------------------------------------------------
+Improvement -  Now you can create a weblink for a subfolder, also updated the plugin "Send Files".
+Improvement - When using Zip function for a subfolder, now will check the banned files inside also.
+Fixed a bug - Can't remove download/upload link under web admin if the weblink file was deleted manually.
+Fixed a bug - When uploaded a very small file, the thumbnail and upload-link data won't update correctly.
+Fixed a bug - Sometimes the version number will be empty in New Version Reminder.
+
+
+Wing FTP Server v6.3.4              Released: 12/May/2020
+--------------------------------------------------------------
+Improvement -  Can search by the full file path in the audit report, when action is "Create Dir", "Delete Dir", "Rename".
+Improvement - Now enable FIPS 140-2 and disable TLS 1.0/1.1 by default.
+Improvement - Improved the mobile UI of upload/download link page.
+Fixed a bug - After logout the HTTPS version of the web client, then can't login the HTTP version of the web client.
+
+
+Wing FTP Server v6.3.3              Released: 30/Apr/2020
+--------------------------------------------------------------
+Fixed a bug - Fixed a possible crash when handling AES-CTR keys with SFTP client.
+Fixed a bug - When enable Directory List Cache, it won't cache the directory list when using UNC path as home folder.
+Fixed a bug - When enable timeout for transfer connection, FTP passive data connection might be closed if listing takes long time.
+Fixed a bug - FTP Rush App (Android/iOS) can't connect to the server via HTTP protocol.
+
+
+Wing FTP Server v6.3.2              Released: 20/Apr/2020
+--------------------------------------------------------------
+Fixed a bug - The download/upload speed information might be incorrect under domain status.
+Improvement - Added a list field "whether expired" under weblink/upload link manager.
+Improvement - In the AD/LDAP user mapping, the wildcard "*" is supported for the AD/LDAP username.
+Improvement - Added an option "Keep WebLink when file is deleted or renamed" under domain settings.
+Fixed a bug - If the option "Need to change the password on the first logon" is enabled, the AD/LDAP user will be forced to change his password.
+
+
+Wing FTP Server v6.3.0              Released: 14/Apr/2020
+--------------------------------------------------------------
+Fixed a bug - Some SFTP client software (like WinSCP) has an issue "Remote side unexpectedly closed network connection".
+Improvement - Now you can change the listener address for web admin, under "Administration > Settings > Listener > Listener Address".
+Improvement - Changed the default value of the option "Server > Settings > General Settings > Miscellaneous > User can change file's modification time".
+Improvement - Changed the default value of the option "Domain > Settings > General Settings > Miscellaneous > Enable FTP command 'OPTS UTF8 ON'".
+
+
+Wing FTP Server v6.2.9              Released: 3/Apr/2020
+--------------------------------------------------------------
+Supported HTTP welcome message, you can define the message under "Domain > Settings > General Settings > Miscellaneous".
+Fixed a bug - The server logs might be wrong for the SFTP "SSH_FXP_ATTRS" response.
+Improvement - Added a variable "%WebLink" for getting the ID of Weblink or Upload link.
+
+
+Wing FTP Server v6.2.8              Released: 24/Mar/2020
+--------------------------------------------------------------
+Fixed a bug - SFTP debug logs won't be written correctly, this bug was introduced in recent version.
+Fixed a bug - When upload small files via a file request link, some UploadLink sessions will always exist.
+Fixed a bug - When upload multiple files via a file request link, the audit report shows the wrong filename.
+Improvement - If you use tray application, Windows IE may cache thousands of files like "keeplive.html?r=xxx".
+Fixed a bug - In the web client, when removing files by multi-files operation, it will always show OK even have no permission.
+Fixed a bug - Fixed a few issues under "Web Admin > Domain > Logs & Status > Graphs".
+
+
+Wing FTP Server v6.2.7              Released: 10/Mar/2020
+--------------------------------------------------------------
+Fixed a possible CSRF vulnerability under the web administration.
+Fixed a possible CSRF vulnerability under the web client.
+When uploading multiple files in the web client, some variable lile "%PathName" will be incorrect in the event OnFileUploaded.
+The uploaded file information will be wrong in the audit database, if you upload multiple files via a file request link.
+Added CTRL key suppport - For the multi-file operation in the web client, now you can hold CTRL key and click files you want to select.
+Disabled the SFTP cipher "diffie-hellman-group-exchange-sha256" by default.
+
+
+Wing FTP Server v6.2.6              Released: 3/Mar/2020
+--------------------------------------------------------------
+Changed the permissions for the folder "session" and "session_admin", Linux/Mac/Solaris user may launch the setup script "./setup.sh" again.
+Added a feature - Added Automatic Crash Recovery feature for Windows version.
+Added a feature - Added New Version Reminder feature in the web administration.
+Improvement - Updated the Help Manual for the web client.
+
+
+Wing FTP Server v6.2.5              Released: 27/Feb/2020
+--------------------------------------------------------------
+Added an option "Enable Linux/Unix symbolic links" under domain settings, it is disabled by default to prevent Linux privilege escalation.
+Fixed a bug - Can't upload 0-byte file (empty file) in the web client.
+Fixed a bug - The web client zip/unzip/text editing operations won't use the default file permission defined in the server settings.
+Improvement - Improved the listing speed for the audit report page when have millions of records.
+Improvement - Changed the default file permission into "0600" under Linux, you can also change it by yourself under "Server > Settings > General Settings > Miscellaneous > Default permissions".
+Improvement - For some security reason, new installation of Linux version will change the entire "Data" folder permissions into "0600".
+Fixed a bug - Can't add home directory when using the API "c_AddGroupDirectory".
+
+
+Wing FTP Server v6.2.3              Released: 6/Jan/2020
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the latest version 1.0.2u.
+Improvement - Updated MacOS application into 64-bit version, because MacOS Catalina drops support for 32-bit apps.
+Fixed a bug - Renaming a file will overwrite an existing file which has the same file name (as the new file name).
+Fixed a bug - The AD/LDAP user won't have weblink (or upload link) permissions, this bug was introduced in the previous version.
+
+
+Wing FTP Server v6.2.2              Released: 10/Dec/2019
+--------------------------------------------------------------
+Added a new language - Polish.
+Added a feature - Added Weblink Manager for managing the download links and upload links.
+Improvement - Enhanced the performance of the tray application, now it takes very low CPU usage.
+Improvement - Now you can enable (or disable) file download/request link under user settings.
+Fixed a bug - Weblink is still active when the old file is overwritten by the new uploaded file.
+Improvement - Embedded Visual C++ redistributable into the installer file, because some old Windows system lacks it.
+Improvement - Added a global variable "bSelfAuthenticated" in the event "BeforeUserLoggedIn", it allows you handle customized authentication.
+Improvement - You can specify a domain URL for the weblinks now, under "Domain > Settings > General Settings > Data Transfer Limit".
+
+
+Wing FTP Server v6.1.9              Released: 15/Nov/2019
+--------------------------------------------------------------
+Fixed a bug - Wing Gateway won't work when the gateway password contains special characters like "&".
+Fixed a bug - Fixed unquoted service path vulnerability for Windows system service.
+Improvement - Enhanced the search file speed under web client, and improved the display for long file name.
+Improvement - Improved the thumbnail mode display in Android and iPhone.
+Improvement - Added some tips for the failed weblink download.
+
+
+Wing FTP Server v6.1.8              Released: 18/Oct/2019
+--------------------------------------------------------------
+Fixed a bug - Sometimes SFTP session will be killed when other SFTP sessions come in.
+Fixed a bug - Fixed a possible crash when downloading files via the FTP protocol.
+Fixed a bug - The timeout setting for the SFTP protocol won't take effect, when you set the timeout value as "0".
+
+
+Wing FTP Server v6.1.7              Released: 3/Oct/2019
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the latest version 1.0.2t.
+Fixed a bug - Fixed a possible memory leak issue which can cause WingFTP crash.
+Fixed a bug - SFTP speed information is incorrect in the server logs.
+
+
+Wing FTP Server v6.1.6              Released: 23/Aug/2019
+--------------------------------------------------------------
+Fixed a bug - The download/upload speed statistics are not correct.
+Improvement - When have multiple subfolder rules defined in the group, now will use the most matched rule, not the first matched rule.
+Improvement - Increased the email/note/address string length limitation under user settings.
+Added a feature - Map the FTP active ports automatically in Wing Gateway.
+
+
+Wing FTP Server v6.1.5              Released: 22/Jul/2019
+--------------------------------------------------------------
+Improvement - Improved the user search function when using ODBC/Mysql database, now it will list all the users whose username includes the keyword.
+Fixed a bug - The closed domain will be started when restarting WingFTP service.
+Fixed a bug - Fixed a possible crash when handling FTP passive listener, this bug was introduced in recent version.
+Fixed a bug - If user already logged in the web client, the web page won't display correctly when redirected from another domain.
+Improvement - Improved the listing speed of the audit report when have millions of pages.
+Fixed a bug - Wing Gateway connection will be lost sometimes.
+
+
+Wing FTP Server v6.1.3              Released: 11/Jul/2019
+--------------------------------------------------------------
+Added 5 new events - "BeforeUserLoggedIn", "BeforeFileDownloaded", "BeforeFileUploaded", "BeforeFileDeleted", "BeforeDirDeleted".
+Improvement - Updated libssh to the latest version 0.9.0.
+Improvement - Added more SFTP MAC algorithms and key exchange algorithms.
+Fixed a bug - Server listener hangs and won't accept any connection under some system.
+Fixed a bug - When generating thumbnail for special image, Wing FTP Server might crash under Linux.
+Fixed a bug - Memory might be leaked when sending email.
+Fixed a bug - File transfer via Wing Gateway might be interrupted in some situation.
+Added a feature - Add an option "SET NAMES UTF8" for Mysql database,  for avoiding mojibake with non-English data.
+Improvement - Updated the Help Manual for Wing FTP Server.
+
+
+Wing FTP Server v6.1.0              Released: 11/Jun/2019
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the latest version 1.0.2s.
+Added a feature - Map the FTP passive ports automatically in Wing Gateway.
+Added a feature - Use LAN IP for FTP PASV response if the client is from LAN.
+Added a feature - Passive port listener timeout can be configured now.
+
+
+Wing FTP Server v6.0.9              Released: 28/May/2019
+--------------------------------------------------------------
+Added a feature - New "Bookmark" function in Web Client, you can add current path into bookmarks via "More actions -> Add Bookmark".
+Improvement - Improved the listing speed of the audit report when have thousands of pages.
+Improvement - Improved the web client interface for some iPad device.
+Improvement - Using background image cache for the login page of Web Client.
+
+
+Wing FTP Server v6.0.8              Released: 14/May/2019
+--------------------------------------------------------------
+Added a feature - New "Copy" function in the web client, and it needs "Rename" permission. 
+Fixed a bug - Can't connect to Wing Gateway when using single thread mode, it was introduced in the previous version.
+Fixed a bug - FTP or FTPS file transfer might be interrupted in some situation.
+Improvement - If you customized the logo before v6.0.1, the login page's button will be shifted.
+
+
+Wing FTP Server v6.0.7              Released: 4/Apr/2019
+--------------------------------------------------------------
+Fixed a bug - Fixed a possible crash when handling SFTP file listing.
+Improvement - SFTP server listener may stop working when have large traffics.
+Improvement - Supported password for the SSH host key now (Windows/Linux version only).
+Fixed a bug - FTP server will return "550 read file error" when resume download from the end of file.
+Fixed a bug - Can't get the latest version information in some situation.
+Improvement - Domain/Server statistics will be updated in time.
+Improvement - Removed Flash uploader under web client for IE/Edge browser.
+Improvement - Improved the web administration interface for old IE browser.
+
+
+Wing FTP Server v6.0.5              Released: 12/Mar/2019
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the latest version 1.0.2r.
+Improvement - Updated libssh to the latest version 0.8.7.
+Improvement - Added more SFTP key exchange algorithms.
+Improvement - Added global options to specify folder for weblink/upload link.
+Improvement - Added a domain option to disable FTP Passive mode or PORT mode.
+Improvement - SFTP client Cyberduck can't login with the error message "Connection failed".
+Fixed a bug - When using ODBC/Mysql database, user will be forced to change password twice if enabled first logon password change.
+
+
+Wing FTP Server v6.0.3              Released: 17/Jan/2019
+--------------------------------------------------------------
+Fixed a bug - Fixed a possible crash when handling FTP passive connection.
+Fixed a bug - For the Event Manager, can't execute 3rd party program when the parameter includes double quotes.
+Improvement - Added an option "Listen on single IP" for the Wing Gateway settings.
+
+
+Wing FTP Server v6.0.2              Released: 30/Nov/2018
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the latest version 1.0.2q.
+Fixed a bug - When generating thumbnails with some special conditions, WingFTP service could crash.
+Fixed a bug - Service might crash when doing "Zip File" with some conditions (Windows only).
+Fixed a bug - Web client operation "Zip File" will fail for non-English file/folder name (Windows only).
+
+
+Wing FTP Server v6.0.1              Released: 2/Nov/2018
+--------------------------------------------------------------
+Free Edition added - After the trial period, you can continue use WingFTP as Free edition for non-commercial use.
+Added an Android App - Help Android user manage FTP files easily.
+Added an iOS App - Help iOS user manage FTP files easily.
+Improvement - Updated libssh to the version 0.7.7.
+Fixed a bug - When connecting database using some ODBC driver, may cause the service crash.
+Fixed a bug - The customized logo will be overwritten when installing a new version under Linux.
+Fixed a bug - Customized logo won't be shown in Google Chrome due to its caching strategy.
+Improvement - Updated the Help Manual for Wing FTP Server.
+
+
+Wing FTP Server v5.1.4              Released: 28/Sep/2018
+--------------------------------------------------------------
+Added a feature - Now you can define additional HTTP headers under domain settings.
+Improvement - Added a new tab "Users" for the group to show the user members.
+Fixed a bug - Fixed an XSS vulnerability for the web link download.
+Fixed a bug - When modify Wing Gateway by the top button, will popup an error "Wing Gateway is not running".
+
+
+Wing FTP Server v5.1.3              Released: 28/Aug/2018
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the latest version 1.0.2p.
+Improvement - Can't send email via some SMTP server like Office365.
+Fixed a bug - Under the mobile UI of the Web Client, can't select the first file when existing 2 rows of toolbar buttons.
+Fixed a bug - Can't input "My email address" when sending a web link.
+
+
+Wing FTP Server v5.1.2              Released: 30/Jul/2018
+--------------------------------------------------------------
+Released a new product "Wing Gateway" and added integration to WingFTP.
+Improvement - Improved the stability of the SFTP server process.
+Improvement - When sending email failed, more error information will be recorded in the server logs.
+Improvement - Improved the compatibility for some screen reading software (for blind people).
+Improvement - Updated the Help Manual for Wing FTP Server.
+
+
+Wing FTP Server v5.1.0              Released: 12/Jun/2018
+--------------------------------------------------------------
+Improvement - Improved the image viewer interface in web client, and also improved its compatibility with old web browsers.
+Fixed a bug - When using Windows authentication with the option "Using Windows NTFS permissions for the home directory", user always has READ/LIST permissions.
+Fixed a bug - File uploader in web client will compress large image file into smaller size.
+Fixed a bug - When a domain admin is limited with a base folder, then modifying home folder may cause the error "Invalid directory path".
+Improvement - User can't generate or see the thumbnails when he has no READ permission.
+
+
+Wing FTP Server v5.0.9              Released: 5/May/2018
+--------------------------------------------------------------
+Improvement - SFTP client under Solaris 11.3 can't connect to the SFTP server.
+Improvement - Improved the cache strategy for the user data, better experience when using Mysql/ODBC database.
+Fixed a bug - Some read-only administrator can clear the domain logs.
+
+
+Wing FTP Server v5.0.8              Released: 24/Apr/2018
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the latest version 1.0.2o.
+Improvement - When using ODBC/Mysql, more information can be shown under the user listing (when choosing a group).
+Improvement - Added file listing column "Date modify" for the mobile UI of the Web Client.
+Fixed a bug - With some ODBC database (for user storage), non-English username can't be displayed.
+Improvement - Added a button "Clear Log" under the domain log interface.
+Improvement - The option "File timestamp uses GMT time" is only for FTP now, because SFTP/HTTP client won't convert the file timestamp.
+Improvement - Let some earlier iPad models use the desktop UI of the Web Client.
+
+
+Wing FTP Server v5.0.6              Released: 4/Feb/2018
+--------------------------------------------------------------
+Improvement - When have multiple subfolder rules, now the server will use the most matched rule, not the first matched rule.
+Improvement - Now when you Drag&Drop file into the web client directly, the file uploader will keep the same as the main uploader.
+Fixed a bug - SFTP server returns the incorrect file/folder names for the virtual folder which is placed under the subfolder.
+Improvement - Modified the WingFTP startup script for Linux/MacOS/Solaris.
+
+
+Wing FTP Server v5.0.5              Released: 9/Jan/2018
+--------------------------------------------------------------
+Added a feature - Added video/audio player under web client, based on the built-in HTML5 player.
+Improvement - Improved the web admin interface, now supports adaptive UI height.
+Improvement - Edge browser can access the web client correctly.
+Improvement - Changed the image viewer interface in web client, more concise.
+Fixed a bug - The issue "Too many open files" when Windows Server has high traffic.
+Fixed a bug - The SFTP downloaded file will be corrupted with WinSCP, it was introduced in v5.0.1, for Windows version.
+Improvement - Improved the compatibility of the web client uploader, supports almost all browsers even no HTML5/Flash support.
+Improvement - Improved the web client uploader, fixed no progress bar issue under Edge browser.
+Improvement - Improved the web client interface for iPhone/Android.
+
+
+Wing FTP Server v5.0.1              Released: 19/Dec/2017
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the latest version 1.0.2n.
+Improvement - Windows version moved to Visual Studio 2017 and its CRT library.
+Added a feature - File request link is now available in web client, you can request files with just a link.
+Added a feature - Introduced a new file uploader in web client, supports both HTML5 and Flash, supports Drag&Drop and multi-threads.
+Improvement - Added sorting function for the IP/file access rules under web admin.
+Improvement - Enhanced the performance of the SFTP file uploading.
+Improvement - Added a HTTP header "X-Content-Type-Options:nosniff".
+Improvement - Added a domain option to disable ECDSA host key.
+Improvement - Updated the Help Manual for Wing FTP Server.
+Fixed a bug - When creating SSH host key under some folder, the key path will be incorrect.
+
+
+Wing FTP Server v4.9.3              Released: 14/Sep/2017
+--------------------------------------------------------------
+Fixed a bug - With many SFTP concurrent sessions, the user XML file could be corrupted when it has a very large size (>80KB).
+Fixed a bug - The HTTP event "OnFileDownloaded" will be triggered twice when downloading a weblink file.
+Fixed a bug - SFTP file list doesn't return the correct date for Daylight Saving Time with some Windows system.
+Fixed a bug - When downloading/uploading with SFTP protocol, transferred bytes won't be updated in the domain's statistics.
+Improvement - The Flash uploader under Web Client won't be shown in Google Chrome, because Chrome requires to enable Flash Player for each website.
+
+
+Wing FTP Server v4.9.2              Released: 11/Aug/2017
+--------------------------------------------------------------
+Fixed a bug - FTP/SFTP file listing doesn't return the correct file date for Daylight Saving Time.
+Fixed a bug - With special conditions, WingFTP will trigger a SIGFPE/Arithmetic exception.
+Improvement - Removed the event "OnIPIsBanned", because normally it won't be triggered or executed.
+
+
+Wing FTP Server v4.9.1              Released: 28/Jun/2017
+--------------------------------------------------------------
+Improvement - CuteFTP can't connect to the SFTP server, with the error message "Failed to create the ssh channel".
+Fixed a bug - Can't jump into the virtual folder with some SFTP client software.
+Fixed a bug - When ending the SFTP session, socket will be shutdown directly before closing the SSH channel.
+Improvement - Improved the compatibility for the SFTP library "phpseclib" which has "Failed to exchange the keys" issue.
+
+
+Wing FTP Server v4.9.0              Released: 9/Jun/2017
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the version 1.0.2L.
+Fixed a bug - SFTP service will crash under Linux/Unix system, this bug might be introduced in recent version.
+Fixed a bug - User data file will be empty with special conditions. When such issue happens, admin may see the error message "User does not exist".
+Improvement - Added two options for disabling TLSv1.0 and TLSv1.1.
+
+
+Wing FTP Server v4.8.8              Released: 23/May/2017
+--------------------------------------------------------------
+Improvement - Web client editor doesn't display correctly under IE10+.
+Improvement -  Improved the web client listing display for IE10/IE11.
+Fixed a bug - WingFTP will hang when exists file "Domains/xxx/xxx.log" (log file modified before 2 days).
+Improvement - SFTP client Cyberduck can't login when enable both password and public key authentication.
+Improvement -  The group drop down box under "Administration -> Domain -> Users" is not alphabetical (only for Linux/Unix).
+
+
+Wing FTP Server v4.8.7              Released: 19/Apr/2017
+--------------------------------------------------------------
+Improvement - Updated libssh to the version 0.7.5.
+Fixed a bug - SFTP service will hang or crash with some special condition.
+Fixed a bug - SFTP public key authentication skips the digest verification, it was introduced in v4.7.0.
+Fixed a bug - Linux sftp client can't login when enable both password and public key authentication, it was introduced in v4.7.0.
+Fixed a bug - The SHA-256 hash for the password is wrong under 64-bit Linux system. 
+
+
+Wing FTP Server v4.8.5              Released: 21/Feb/2017
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the version 1.0.2k.
+Improvement - Updated OpenSSL FIPS to the version 2.0.14.
+Improvement - Updated libssh to the version 0.7.4.
+Improvement - Now supports ECDSA host key for the SFTP connection.
+Improvement - Supports 5 log levels for the SFTP debug logs.
+Added a feature - Now you can enter the customized SFTP Algorithms.
+Improvement - User can change password under the mobile UI of the Web Client.
+Fixed a bug - Sometimes can't get the latest version information under "Server -> License". 
+
+
+Wing FTP Server v4.8.3              Released: 18/Jan/2017
+--------------------------------------------------------------
+Fixed a bug - Thumbnail can't be displayed correctly when switching the view mode or sorting.
+Fixed a bug - SFTP service might hang when bad request in SFTP initialization. 
+Fixed a bug - When clicking on the back button of the web browser, it will show the error "You can modify the html file, but please keep the link 'wftpserver.com' at least".
+Improvement - Added the HTTP header "Strict-Transport-Security".
+Improvement - Removed the web client plugins "Jupload" and "Jdownload", because most web browsers stopped supporting Java Applet.
+
+
+Wing FTP Server v4.8.2              Released: 22/Dec/2016
+--------------------------------------------------------------
+Fixed a bug - web client stops working for the error "cannot read webclient/run.lua: Bad file descriptor".
+Fixed a bug - web client stops working for the error "not enough memory".
+Added a feature - Now you can enter the customized OpenSSL Cipher Suites under the server settings.
+Added a feature - Added sorting function for the feature "Audit & Report".
+Improvement - Treated weblink session as normal session, admin can manage it and view its statistics.
+Improvement - Now can display thousands of online sessions with better performance.
+Improvement - Updated the Help Manual for Wing FTP Server.
+
+
+Wing FTP Server v4.8.0              Released: 25/Nov/2016
+--------------------------------------------------------------
+Added a feature - Now supports Drag and Drop File Uploading in the web client.
+Improvement - Now Linux/Unix sftp tool can handle listing folders with large number of files.
+Improvement - Let Google Chrome download the PDF file instead of opening the internal PDF viewer.
+Fixed a bug - Updated the string library, because some wrong string format may cause the service crash.
+Fixed a bug - When FXP feature is disabled, PORT command can still accept non-client IP.
+
+
+Wing FTP Server v4.7.8              Released: 18/Oct/2016
+--------------------------------------------------------------
+Improvement - Now supports Perfect Forward Secrecy (PFS) for TLS/SSL connection.
+Fixed a bug - File transfer log information is not correct when using SFTP service.
+Fixed a bug - FTP transferred file size is not correct when the uploaded file >= 2GB.
+Improvement - Using SHA256 algorithm for generating the self-signed SSL certificate.
+Improvement - Now the default SSL certificate is with SHA256 algorithm and 2048-bit key.
+Improvement - Added security HTTP Headers "X-XSS-Protection" and "X-Frame-Options".
+Improvement - Will remove the thumbnail cache when the image file is changed.
+Improvement - Added LSB tags to the WingFTP startup script under Linux.
+
+
+Wing FTP Server v4.7.6              Released: 23/Sep/2016
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the version 1.0.1u.
+Fixed a bug - SFTP connection will be closed randomly, especially with Linux 'sftp' tool.
+Improvement - Provided a tool for converting the old PKCS#15 ssh key to the PEM format.
+Improvement - Restored the SSH Key Manager, now you can use different ssh key for different domain.
+Improvement - Now you can backup the csutomized html file as a ".bak" file, then it will be restored after an upgrade.
+Fixed a bug - Bugfix for a possible invalid pointer usage in Libssh.
+Improvement - Updated the Help Manual for Wing FTP Server.
+
+
+Wing FTP Server v4.7.3              Released: 25/May/2016
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the version 1.0.1t.
+Improvement - Can't upload file in the standard upload mode in Mac OSX (caused by the recent version of Flash Player).
+Improvement - Improved the compatibility for some SFTP client which has "Failed to create the ssh channel" issue.
+Improvement - Now the FXP feature will be turned off by default.
+Improvement - Disabled the auto-saving setting file feature.
+Fixed a bug - Can't execute the Lua script in the event manager, only happens in Mac OSX.
+Fixed a bug - Can't handle the LDAP group mapping correctly if the LDAP user belongs to 20+ LDAP groups.
+
+
+Wing FTP Server v4.7.1              Released: 31/Mar/2016
+--------------------------------------------------------------
+Fixed a bug - Cannot download file via the linux command "sftp", it was introduced in the previous version.
+Fixed a bug - Interrupted SFTP upload won't relase the file handle, it was introduced in the previous version.
+Improvement - When using Windows data deduplication service, now WingFTP can list file with the permissions "APL".
+Improvement - WingFTP will generate a log file "/ssh_log_warning" for recording the SFTP errors.
+Fixed a bug - The time zone in the email is wrong caused by Daylight Saving Time.
+
+
+Wing FTP Server v4.7.0              Released: 22/Mar/2016
+--------------------------------------------------------------
+Improvement - Changed the SSH library into libssh.
+Improvement - Now SSH cipher modes includes CTR mode.
+Improvement - Substantially improved the SFTP download performance.
+Improvement - Supports more ssh key exchange methods and MAC hashes.
+Improvement - Removed the ssh host key manager, now WingFTP can generate the ssh host key automatically.
+Fixed a bug - Cannot download 0-size file through FTP protocol, this bug was introduced in the previous version.
+
+
+Wing FTP Server v4.6.3              Released: 10/Mar/2016
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the version 1.0.1s.
+Added a feature - Added an option for redirecting HTTP to HTTPS automatically.
+Added a feature - Added an option to force user to change his password on his first login.
+Fixed a bug - FTP download may hang or fail with some special condition.
+Fixed a bug - Cannot list all the group names in the user listing, when adding more than 100 groups.
+
+
+Wing FTP Server v4.6.2              Released: 13/Jan/2016
+--------------------------------------------------------------
+Added a feature - Now supports Raspberry Pi device.
+Fixed a security bug – Fixed a CSRF vulnerability (uploading file) in the web client.
+Fixed a security bug – Fixed a XSS vulnerability in the web admin (Linux OS only).
+Fixed a bug - Some SFTP client can't upload 4GB+ file.
+Fixed a bug - In the Web Client, cannot show file listing when file name contains special characters.
+Fixed a bug - In the Web Client, cannot select a file/folder when file name contains special characters.
+Improvement - Removed the UPNP feature, avoiding the crash issue caused by UPNP.
+Improvement - Now WingFTP service will interact with desktop, then no need to change the service logon account.
+
+
+Wing FTP Server v4.6.0              Released: 10/Dec/2015
+--------------------------------------------------------------
+Fixed a security bug – Fixed a filename XSS vulnerability in the web client (Linux OS only).
+Fixed a security bug – Fixed a CSRF vulnerability in the web client, it can force users to upload files to the FTP server.
+Improvement - Recent version of "sftp" client can't connect to Wing FTP Server, it is caused by the maximum public-key component size.
+Improvement - Enhanced the quality of customized logo and thumbnail images.
+Improvement - Improved the image viewer in the web client.
+Improvement - Added a cross-domain policy file "crossdomain.xml" for Adobe Flash Player.
+Improvement - Now added "secure" flag for the web client cookies.
+Improvement - Now added "X-Frame-Options" flag for the HTTP header.
+
+
+Wing FTP Server v4.5.8              Released: 30/Oct/2015
+--------------------------------------------------------------
+Added a feature - Now you can disable TLSv1.0/TLSv1.1 protocols.
+Improvement - Now added "HttpOnly" flag for the web client cookies.
+Improvement - Improved the compatibility for some SFTP client software: http://www.wftpserver.com/bbs/viewtopic.php?f=2&t=3169
+Improvement - Updated the web client plugin "Jupload" and "Jdownload".
+Fixed a bug - Some Lua script can not be executed using "WFTPConsole.exe".
+
+
+Wing FTP Server v4.5.6              Released: 8/Oct/2015
+--------------------------------------------------------------
+Fixed a bug - Can not access all the virtual folders, this bug is introduced in the previous version.
+Fixed a security bug – Fixed an XSS vulnerability under the Online Text Editor.
+
+
+Wing FTP Server v4.5.5              Released: 22/Sep/2015
+--------------------------------------------------------------
+Added a feature - Now you can add home directory for the group.
+Added a feature - Now the virtual folder can be placed under the subfolder of the home directory.
+Added a feature - In the web client's search interface, added a function "Web Link".
+Added a feature - In the web client's search interface, added a function "Text Edit".
+Improvement - Updated the Help Manual for Wing FTP Server.
+
+
+Wing FTP Server v4.5.3              Released: 7/Aug/2015
+--------------------------------------------------------------
+Improvement - Added support the SFTP command "SSH_FXP_FSETSTAT".
+Improvement - Now you can add message when sending web links.
+Improvement - Now you can add message when using the web client plugin "Send Files".
+Fixed a bug - When downloading a web link with password, the enter key does not work.
+
+
+Wing FTP Server v4.5.2              Released: 20/Jul/2015
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the version 1.0.1p for fixing an OpenSSL security vulnerability.
+Added a feature - When using Windows authentication, you can choose Windows NTFS permissions for the home directory.
+Fixed a bug - Server might crash when transferring files with FTP protocol.
+Improvement - Now supports the server variable "%IP" for the event "OnExceedUSERPASS".
+
+
+Wing FTP Server v4.4.9              Released: 16/Jun/2015
+--------------------------------------------------------------
+Improvement - Enhanced the performance of the LDAP Authentication (by caching the LDAP session).
+Fixed a bug – With some SFTP client, the uploaded file will be truncated.
+Fixed a bug – When enabled the directory list cache, the FTP/SFTP file listing might be incorrect.
+Added a feature - Added a new web client plugin "Send Files" and included it in the installer.
+Fixed a bug - When downloading file with Google Chrome, non-English file name might be URL encoded.
+Fixed a bug - When uploading a folder with the web client plugin "JUpload", the event "OnDirCreated" won't be triggered.
+Fixed a bug - Cannot download file/folder with the web client plugin "JDownload", when file/folder name contains special characters.
+
+
+Wing FTP Server v4.4.7              Released: 29/May/2015
+--------------------------------------------------------------
+Improvement - Signed the Java Applets (JUpload & Jdownload), now you can use them without any problem.
+Fixed a security vulnerability – Fixed an CSRF vulnerability under the Web Admin.
+Improvement - Improved the web client plugin "Jdownload", and add multiple languages for it.
+Fixed a bug - With Linux version, the WebLink password will be 'undefined' when specify an empty password.
+
+
+Wing FTP Server v4.4.6              Released: 28/Apr/2015
+--------------------------------------------------------------
+Improvement - Improved the stability of the FTP/HTTP/SFTP service.
+Fixed a security vulnerability – Fixed an XSS/CSRF vulnerability under the Web Admin.
+Added a feature - Added "Weblink password protection" in the Web Client.
+Improvement - Improved the email interface of the weblink.
+Improvement - Removed the Web Client feature "Batch Download" by default, but you can still use the Jdownload plugin.
+Fixed a bug - When no disk space is available in uploading, the Web Client will still show the success message.
+
+
+Wing FTP Server v4.4.5              Released: 24/Mar/2015
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the version 1.0.1m, now supports TLS 1.2 (TLS 1.1).
+Improvement - Substantially improved the SFTP download performance.
+Improvement - Improved the interface of the mobile version of Web Client.
+Improvement - Removed SSLv2 and SSLv3 by default.
+Added a feature - Added a new option "Enable FTP command 'AUTH TLS/SSL'".
+Added a feature - Auto-generate a Minidump file for the crash dump analysis.
+Fixed a bug - Improved the SFTP handshake process to avoid the handshake error.
+
+
+Wing FTP Server v4.4.3              Released: 12/Jan/2015
+--------------------------------------------------------------
+Added Korean language.
+Improvement - Improved the compatibility for some SFTP client software.
+Improvement - Now support Android Tablet administration.
+Fixed a bug - Can not upload 1GB+ file with some SFTP client software.
+Fixed a bug - Can not execute Lua script using "WFTPConsole.exe".
+Fixed a bug - Can not autostart WingFTP service when reboot in MacOS Yosemite.
+Fixed a bug - Can not close the setting window under the Web Admin using Google Chrome.
+
+
+Wing FTP Server v4.4.1              Released: 14/Oct/2014
+--------------------------------------------------------------
+Improvement - Improved the stability of the FTP service.
+Improvement - Improved the stability of the SFTP service.
+Improvement - Improve the toolbar of the mobile version of Web Client.
+Added a feature "Email Weblink" in the mobile version of Web Client.
+Fixed a bug - IP access ruls does not support some CIDR format.
+Fixed a bug - IP access ruls can not recognize the IP range format like "192.168.1.0-192.168.1.255".
+Fixed a bug - Can not save the user account when existing some ".bakfile" file.
+
+
+Wing FTP Server v4.3.8              Released: 26/Jun/2014
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the version 0.9.8za.
+Improvement - Improved protection for phishing attacks of the Web Admin/Web Client.
+Improvement - Improved protection for XSS-based attacks of the Web Admin/Web Client.
+Fixed a bug - Weblink can be accessed using part of the WebLink string.
+Fixed a bug - By requesting some reserved Windows OS filename, it is possible to cause a denial of service against the web client.
+
+
+Wing FTP Server v4.3.6              Released: 24/Feb/2014
+--------------------------------------------------------------
+Improvement - When using ODBC/Mysql, more information can be shown under the user listing.
+Added a feature - Added a global option "User can change file's modification time".
+Fixed a bug - When downloading an empty file (with FTP protocol), the client side will get a reply message "550 Can't access file".
+Fixed a bug - When using SQL SERVER for ODBC database, the user listing's data will be incorrect.
+Fixed a bug - When the file access rule contains some special characters, then that rule won't take effect.
+Fixed a bug - When the file access rule contains non-English characters, the warning dialog will not popup under the web client.
+
+
+Wing FTP Server v4.3.5              Released: 11/Jan/2014
+--------------------------------------------------------------
+Improvement - Updated OpenSSL to the version 0.9.8y.
+Improvement - Improved the speed of generating the audit report.
+Improvement - Added an option "Sender's Email" in the WebLink interface.
+Improvement - Disabled SSLv2 by default.
+
+
+Wing FTP Server v4.3.3              Released: 12/Dec/2013
+--------------------------------------------------------------
+Added a feature - User password complexity.
+Added a feature - User passwords using SHA256 encryption.
+Added a feature - Added a HTTP event "OnUserDisconnect".
+Improvement - Improved the handshake process of the SFTP service.
+Improvement - Supported SMTP command "HELO", because some SMTP server does not support "EHLO".
+Fixed a bug - Under Linux, if you use uppercase characters in the LDAP mapping string, maybe the user mapping would fail.
+
+
+Wing FTP Server v4.2.9              Released: 15/Nov/2013
+--------------------------------------------------------------
+Improvement - Improved the stability of the FTP service.
+Improvement - Improved the stability of the SFTP service.
+Improvement - Improved the listing of the symbolic link under Linux.
+Improvement - Added auto-renaming for the iPhone uploaded file "capturedvideo.MOV".
+Updated Turkish language.
+
+
+Wing FTP Server v4.2.8              Released: 10/Sep/2013
+--------------------------------------------------------------
+Fixed a bug - With some Linux System, memory will be leaked when handling the event.
+Fixed a bug - The transfer speed statistics will be incorrect.
+Fixed a bug - Can't show the carriage return in the email notification.
+Fixed a bug - The graphs chart data for "last five hours" or "last ten days" will be incorrect.
+Improvement - Added a FTP command "MLST".
+Improvement - Now support such FTP command "list -al xxx".
+Improvement - Added a default value for transfer connection timeout.
+
+
+Wing FTP Server v4.2.6              Released: 26/Aug/2013
+--------------------------------------------------------------
+Improvement - Improved the web client plugin "Jdownload".
+Improvement - Now SFTP server supports multiple ssh key authentication attempts.
+Improvement - Improved the web client plugin "Jupload".
+Improvement - Improved the web client batch download.
+Fixed a bug - The graphs chart data for the domain will be incorrect.
+Updated Turkish language.
+
+
+Wing FTP Server v4.2.5              Released: 29/Jun/2013
+--------------------------------------------------------------
+Improvement - Improved the user data (or setting files) protection for power failures.
+Improvement - Now SFTP supports strong SSH ciphers only (FIPS 140-2 approved ciphers).
+Fixed a bug - Domain admin can make a subfolder outside the base folder.
+Fixed a bug - In Solaris 11, the initialized admin password will be incorrect.
+Improvement - Now SFTP supports setting the attribute "modified time" for the uploaded file.
+Improvement - When using "Map LDAP group to local user", now it will check all the LDAP groups until a matched LDAP group is found.
+Added a feature - Added an option "Use lowercase letters for the auto-generated folder name" for the LDAP authentication.
+
+
+Wing FTP Server v4.2.0              Released: 3/May/2013
+--------------------------------------------------------------
+Added a feature - Audit & Report, you can analyze all the transactions and generate reports in real time.
+Fixed a bug - The server will skip "ssh public key" authentication when the public key can't be read.
+Fixed a bug - Can not display the recipients after saving the recipients in the event manager.
+Improvement - In FTP active mode, the server will establish the active connection with the centain IP (which the client connects to).
+Improvement - When the option "Enable Web Link" is checked off, you can't download any generated web link.
+Improvement - Updated the Help Manual for Wing FTP Server.
+
+
+Wing FTP Server v4.1.5              Released: 17/Mar/2013
+--------------------------------------------------------------
+Added a feature - Now support iPad administration.
+Improvement - Improve the compatibility of the mobile version of Web Client.
+Improvement - Now support multiple ssh public keys in one key file.
+Improvement - SFTP can list the contents of the symbolic link path.
+Improvement - Support SFTP chmod operation.
+Improvement - Improve the compatibility with some SFTP client.
+Improvement - Support multiple recipients when sending the WebLink in Web Client.
+Improvement - Support multiple recipients when sending email in Event Manager.
+
+
+Wing FTP Server v4.1.3              Released: 20/Dec/2012
+--------------------------------------------------------------
+Added a feature - When using ODBC/Mysql, more columns can be listed under the user listing, such as "expired", "disk quota".
+Improvement - Improve the usability and compatibility of the mobile version of Web Client.
+Improvement - Automatically rename the uploaded file by iOS, because iOS will always give the filename as "image.jpg", .
+Fixed a bug - The subfolder rules won't take effect when folder name includes some specific symbols.
+Fixed a bug - The Lua API "c_KickSessionByName" couldn't work correctly.
+Updated French language.
+
+
+Wing FTP Server v4.1.1              Released: 6/Sep/2012
+--------------------------------------------------------------
+Fixed a bug - The server's administrator could not login the management interface when an IP rule existed.
+Fixed a bug - The server might crash when using zip command.
+Improvement - Improve the compatibility of SSH public key.
+Added a feature - The logs will be automatically compressed and saved.
+Added a feature - Add a new domain option "Enable FTP command 'OPTS UTF8 ON'" to improve unicode compatibility when doing FTP use Windows Explorer.
+Added a feature - Add user's options for SSH public key authentication.
+
+
+Wing FTP Server v4.0.9              Released: 20/Jul/2012
+--------------------------------------------------------------
+Fixed a bug - If a user has the same username in two different domains, after he logs in Domain A with webclient, he can log in Domain B simply by modifying the URL rather than relog.
+Fixed a bug - The variable "%DD" will be invalid for log filename.
+Improvement - Updated OpenSSL to the latest version.
+Improvement - Now the Web Client will remember the last sorting on the specified column.
+Improvement - Now you can send mail with HTML content.
+Improvement - Updated the Help Manual for Wing FTP Server.
+
+
+Wing FTP Server v4.0.8              Released: 14/Jun/2012
+--------------------------------------------------------------
+Fixed a bug - Command MDTM resolving parameter error.
+Fixed a bug - Could not delete directory with some FTP client.
+Added a feature - Added FTP commands: MFMT, MFCT, MFF.
+Added a feature - Now you can map LDAP group to local user.
+Added a feature - Now you can upload files under Android.
+Added a feature - When uploading a small file, it can't trigger the FTP event "OnQuotaExceeded".
+Added a feature - Added three variables for the filename of the domain log: %MM，%DD，%HH.
+
+
+Wing FTP Server v4.0.6              Released: 17/May/2012
+--------------------------------------------------------------
+Added a feature - Now you can send weblink via email in the Web Client.
+Added a feature - Now you can define the default file/directory permissions.
+Added a feature - Added a Web Client plugin - JDownload.
+Added a feature - Added an option that allow the server can use LAN IP in passive response when the connection coming from LAN.
+
+
+Wing FTP Server v4.0.5              Released: 8/Mar/2012
+--------------------------------------------------------------
+Fixed a bug - SFTP connection timeout won't work.
+Fixed a bug - Server might freeze or crash when it is connected by some special SFTP clients.
+Fixed a bug - When downloading file with Firefox 10, non-English file name can't be displayed.
+Fixed a bug - Error might occur when creating new text file in a non-English folder.
+Fixed a bug - WebLink will contain a Carriage-Return.
+Improvement - Now SFTP supports rekey during the transfer.
+Improvement - Add a option enable/disable the PROT command.
+Improvement - Add AES encryption algorithms for SFTP.
+
+
+Wing FTP Server v4.0.3              Released: 15/Jan/2012
+--------------------------------------------------------------
+Fixed a bug - When using ODBC or Mysql, the transfer quota for the user account won't increase.
+Fixed a bug - Can't be connected with some special SFTP client.
+Fixed a bug - Server might crash caused by libnat.
+Improvement - Before uploading files in the Web Client, it will check whether you have upload permission.
+Improvement - Increase the username length you can input in the Administrator.
+
+
+Wing FTP Server v4.0.2              Released: 8/Nov/2011
+--------------------------------------------------------------
+Fixed a bug - Can not start wftpserver service on some Unix-like OS.
+Fixed a bug - FTP EPSV command parameters error.
+Fixed a bug - Files with Unicode name can be still downloaded when the credit is insufficient.
+Improvement - Display a warning message instead of 404 error, when no download permission using Web Client.
+
+
+Wing FTP Server v4.0.1              Released: 24/Oct/2011
+--------------------------------------------------------------
+Added a feature - IPv6 is now supported. You can add IPv6 listeners or IPv6 access rules like IPv4.
+Added a feature - Screen reader is now supported (for the Web Client). We have tested it successfully with JAWS and NVDA.
+Fixed an information disclosure vulnerability when using HTTP protocol.
+Added two session variables - "%OldFilePath" and "%NewFilePath" for the event "OnFileRenamed".
+Improvement - Improved the web client interface for iPhone/Android.
+Improvement - Improved the Spanish translation for the Web Client.
+Fixed a bug - Cannot list in the Web Client when file name contains special characters.
+Fixed a bug - AD/LDAP users mapping would be wrong in some situation.
+Fixed a bug - Cannot input special characters in the field "Event -> Execute Program -> Parameters".
+Fixed a bug - Incorrect display of the field "User -> Ratio/quota -> Preset/Current Credit".
+
+
+Wing FTP Server v3.9.0              Released: 17/Aug/2011
+--------------------------------------------------------------
+Fixed a bug - Server might crash when doing "Zip File" or "Unzip File" in the web client.
+Fixed a bug - With web client, files containing special characters couldn't create web link.
+Fixed a bug - With web client, changing password will fail if user password contains special characters.
+
+
+Wing FTP Server v3.8.9              Released: 26/Jul/2011
+--------------------------------------------------------------
+Improvement - Could not download some file with Android web browser.
+Improvement - Improved the ODBC/Mysql performance when there are 10,000+ users and each user owns a group.
+Improvement - Cancel the string length limitation for "AD Users Mapping" and "LDAP Users Mapping".
+Fixed a bug - Files under the SFV directory won't be checked caused by case-insensitive problem.
+
+
+Wing FTP Server v3.8.8              Released: 19/Jun/2011
+--------------------------------------------------------------
+Fixed a bug - When enabled "ssh public key" authentication, SFTP client can still login with text password.
+Fixed a bug - With some Operating System, file handle will be leaked.
+Improvement - LDAP/AD users could inherit local user's attribute "enabled protocols" now.
+Improvement - Now FEAT response includes "CLNT".
+
+
+
+Wing FTP Server v3.8.7              Released: 26/May/2011
+--------------------------------------------------------------
+Fixed a bug - Fixed a LDAP security bug, LDAP authentication against Active Directory allows blank password.
+Fixed a bug - Fixed a SSL bug with SMTP configuration.
+Fixed a bug - User/Group/Admin name cannot contain two (or more) sequential space character.
+Fixed a bug - Home directory cannot contain two (or more) sequential space character.
+Fixed a bug - Allows variables "%PathName","%FileName","%FileSize" in the HTTP Event OnQuotaExceeded.
+
+
+
+Wing FTP Server v3.8.6              Released: 23/May/2011
+--------------------------------------------------------------
+Fixed a bug - With CentOS system, server might crash when uploading a huge file (>30GB).
+Fixed a bug - The quota size won't increase when zip/unzip a file.
+Fixed a bug - The quota size won't decrease when removing a folder.
+Fixed a bug - With web client, Firefox cannot copy the generated Web Link.
+Fixed a bug - After unzip a file with web client, renaming or other operation could not work fine.
+
+
+
+Wing FTP Server v3.8.5              Released: 10/May/2011
+--------------------------------------------------------------
+Added a feature - Web Link downloading is now supported.
+Added a feature - Added domain option of whether to enable the GMT file timestamp. If not checked, it will use the local time (mainly to some UNIX like servers).
+Added two system variables - %UserMaxQuota and %UserCurrentQuota.
+Improvement - More SSH client tools are supported.
+Improvement - Apart from the 1024 bits, now the SSH public key also supports RSA1024bits, 2048bits and 4096bits. DSA1024bits and 2048bits.
+Enhanced the quality of web client thumbs.
+Fixed a bug - Connecting to certain SMTP servers failed when sending an email.
+Fixed a bug - With web client, image files containing special characters couldn't create thumbs.
+Fixed a bug - When the email subject contains some Unicode languages, or when it is unusually long, unrecognizable characters may occur.
+
+
+
+Wing FTP Server v3.8.0              Released: 6/Mar/2011
+--------------------------------------------------------------
+Added a feature - Now supports Web Client Plugins.
+Improvement - Enhanced the compatibility for LDAP Authentication (supports more LDAP Servers).
+Fixed a bug - Server might freeze or crash when it is connected by some special SFTP clients.
+Fixed a bug - Certain non-English folders couldn't be compressed into a zip file with Web Client (or FTP client).
+Fixed a bug - When mapping LDAP User to Local User, the LDAP User can't get certain attributes of the Local User.
+Fixed a bug - The virtual folders couldn't be shown via FTP/SFTP listing if there is no home directory.
+Fixed a bug - In FTP active mode, the server would always establish the active connection with the first IP. This could cause problems under certain circumstances.
+Fixed a bug - When generating thumbnails for particular images, memory leak could occur.
+Fixed a bug - The virtual folder permissions might be wrong for FTP listing (only for Linux/Unix).
+Fixed a bug - Some SFTP clients would receive an error message when disconnecting.
+
+
+
+Wing FTP Server v3.7.5              Released: 23/Jan/2011
+--------------------------------------------------------------
+Added a feature - Now supports subfolder permission for group.
+Added the following server variables: %YYYY, %MM, %DD, %HH.
+Improvement - Operations Delete/Rename/Zip on the subfolders must meet the permissions of subfolders.
+Fixed a bug - Linux version cannot load external Lua library.
+Fixed a bug - Some system variables cannot be called in some Event.
+Fixed a bug - Can't enter the subfolder which has no list permission in the Web Client.
+Fixed a bug - When enabled directory list cache, display of disk quota in the Web Client might be wrong.
+Fixed a bug - The permission field of FTP virtual directory can't be displayed with FTP MLSD.
+
+
+
+Wing FTP Server v3.7.2              Released: 25/Nov/2010
+--------------------------------------------------------------
+Added LDAP Authentication feature. We have tested it successfully with OpenLDAP and MS Active Directory.
+Added Turkish language.
+Fixed a bug - the variable %PathName or %FileName will be empty in the event HTTP::OnFileDeleted.
+Fixed a bug - the variable %PathName or %FileName will be incorrect in the event SSH::OnFileDeleted.
+Fixed a bug - cannot upload empty file via SFTP.
+Updated the Help Manual for Wing FTP Server.
+
+
+
+Wing FTP Server v3.6.9              Released: 1/Nov/2010
+--------------------------------------------------------------
+Substantially improved directory listing performance.
+Improved Windows authentication security, now Windows authentication cannot be enabled if Windows 'Guest' account is enabled.
+Improved the content of administrator logs.
+Fixed a bug - cannot specify a UNC path as base folder for domain admin.
+
+
+
+Wing FTP Server v3.6.8              Released: 20/Oct/2010
+--------------------------------------------------------------
+Added a feature - Now you can map the AD account to a local user of WingFTP.
+Added an FTP command "SITE CHMOD" (only for Linux/Unix).
+Improvement - Specific symbols like quotes or backslash can be used in user/admin's password.
+Increased the default timeout value for Lua scripting.
+Removed Wing FTP version number from FTP reply and HTTP header to address security concern.
+Fixed a bug - The upload of Web Client would fail when home directory had no "read" permission.
+Fixed a bug - A slow download speed was occasionally recored by the statistics when there was actually no download going on.
+Fixed a bug - FTP command "XCRC" couldn't work fine with the 3rd parameter.
+Fixed a bug - Domain administrator sometimes couldn't create folder under base folder.
+Fixed a bug - Domain administrator couldn't select some folders whose name contains specific symbols.
+
+
+
+Wing FTP Server v3.6.6              Released: 23/Aug/2010
+--------------------------------------------------------------
+Added FIPS 140-2 support for OpenSSL.
+Fixed a bug - Certain HTTP requests could make the server crash (Windows only).
+Added a feature - Now you can filter user list by group in the administration.
+Added option for testing the SMTP connection when adding SMTP config.
+Fixed a bug - Users could not select files with Safari 3.0 when using Web Client.
+Fixed a bug - When many IP access rules were made, the Allow list would be ineffecitve.
+Fixed a bug - Incorrect display of email time(time zone) when Lua API c_Sendmail() was called.
+Fixed a bug - some problems with the User and Group.
+Fixed a bug - Incorrect disk quota report when transferring files with FTPS.
+Fixed a bug - The upload of small files could continue even when disk quota is exceeded.
+Fixed a bug - The download of small files could continue even when download limitation is exceeded.
+Fixed a bug - When disk quota is already exceeded, continuative uploading might cause the creation a 0-size file on the server.
+Improved the sequencing of files or directories selected by Admin.
+Updated the OpenSSL library to the newest version 0.9.8o.
+
+
+Wing FTP Server v3.6.1              Released: 26/Jul/2010
+--------------------------------------------------------------
+Fixed a bug - Fixed an SSH security vulnerability.
+Fixed a bug - Fixed an security vulnerability on the Web Client.
+Fixed a bug – More diverse SSH error response codes for occurrence of different SSH errors.
+Fixed a bug – Files with Unicode name could not be downloaded when using Windows command line.
+Fixed a bug – For some client tools, error might occur when downloading files via SSH protocol.
+
+
+Wing FTP Server v3.6.0              Released: 15/Jul/2010
+--------------------------------------------------------------
+Added a feature - The direct zip/unzip of files on server is possible now both for Web Client and FTP client.
+Added a feature - Individual access rules for subfolders supported.
+Added a feature - Base folder for domain administrator supported.
+Added a feature - Improved Web Client Interface now supports both iPhone and Android.
+Added a feature - Simultaneous operations on multi-files now supported in Web Client, i.e. you can zip/delete/cut multiple files simultaneously.
+Added a feature - Now supports SSH public key authentication for users. 
+Added a feature - Text file can be created now while using Web Client.
+Added a feature - Added a global option "Disable SSLv2".
+Improvement - Updated libpng to version 1.2.44.
+Improvement - Permissions of "Rename file" and "Rename folder" now seperated.
+Improvement - Modified some hotkeys for Web Client.
+Fixed a bug - Server would crash when special IP rules were added, such as "10.*".
+Fixed a bug - The case-insensitive character of the Windows system for usernames could go wrong occasionally. 
+Fixed a bug - The upload of component could not be properly done with the new version of Flash on Windows 7.
+Fixed a bug - When downloading a ".swf" file via Web Client, the content of the file would be displayed directly.
+Fixed a bug - If an FTP message contained Carriage-Return at the end, the FTP client would be frozen.
+
+
+Wing FTP Server v3.5.2              Released: 11/Jun/2010
+--------------------------------------------------------------
+Fixed a bug - With Disk Quota enabled,server might crash while uploading a file(SFTP-connection only).
+Fixed a bug - Change some FTP response codes according to RFC. eg.,the response code for creating a directory has been changed from 250 to 257.
+
+Wing FTP Server v3.5.1              Released: 9/Jun/2010
+--------------------------------------------------------------
+Added a feature - Added an option for the admin to limit the minimum length of user's password. 
+Fixed a bug - Some APIs cannot be implemented in Task Scheduler and Event Manager (only happened with version3.5.0).
+Fixed a security vulnerability – Fixed an XSS vulnerability (BUGTRAQ  ID: 40510).
+
+Wing FTP Server v3.5.0              Released: 27/May/2010
+--------------------------------------------------------------
+Added a feature - Now support Windows Authentication (NTLM Authentication or Active Directory).
+Added a feature - Now support domain administrator.
+Updated Portuguese and Spanish languages.
+Added some server variables, like "%LastDir","%FileName"...
+Fixed a bug - Windows Handles leak issue.
+Fixed a bug - Event's input box "Program Parameter" will escape quotation marks.
+
+
+
+Wing FTP Server v3.4.5              Released: 29/Apr/2010
+--------------------------------------------------------------
+Fixed a directory traversal vulnerability when using HTTP protocol. (SA39629)
+Added Portuguese(Brazil) language.
+Added Spanish language.
+Updated English language.
+Updated the Console application (wftpconsole), now it supports option "-f <Lua file>".
+Updated the Help Manual for webclient and webadmin.
+Added a password strength bar when changing user/admin password.
+Fixed a bug - Can't use filename as parameter for FTP list command.
+Fixed a bug - Warning dialog will not popup sometimes when uploading via webclient in Mac OS X.
+
+
+Wing FTP Server v3.4.3              Released: 14/Apr/2010
+--------------------------------------------------------------
+Added a feature - Support wildcards in the filename when doing FTP list.
+Fixed a bug - Occasionally incorrect display of SSL certificates information occurred when more than one SSL certificate is contained in the SSL list.
+Updated the Help Manual for Wing FTP Server.
+Updated English language both of webadmin and webclient.
+
+
+Wing FTP Server v3.4.2              Released: 28/Mar/2010
+--------------------------------------------------------------
+Updated German language.
+Updated Traditional Chinese language.
+Updated the Help Manual for Wing FTP Server.
+Added a feature - Support SSL certificate chain, as some certificate authorities only issue chained certificate.
+Fixed a bug - Error occured when using SSH protocol with some FTP clients.
+
+
+Wing FTP Server v3.4.1              Released: 8/Mar/2010
+--------------------------------------------------------------
+Fixed an information disclosure vulnerability when using HTTP protocol.
+Fixed a bug - Installation for Windows would not register service sometimes.
+Changed timeout value for HTTP connections. 
+Updated the Help Manual for Wing FTP Server.
+
+
+Wing FTP Server v3.4.0              Released: 5/Mar/2010
+--------------------------------------------------------------
+Added Italian language.
+Added Dutch language.
+Updated English language.
+Fixed a directory traversal vulnerability where it is possible to see or download files outside of user's home directory. Only in the Web Client.
+Added a feature - Now supporting graphs display for real-time server traffics.
+Added a feature - Logo can be customized for Web Client's upper-left corner.
+Added a feature - You can re-generate a random password for an existing user.
+Added a feature - Disk quota capacity could be displayed in the Web Client.
+Add supporting for some SSH commands like SSH_FXP_SETSTAT, SSH_FXP_READLINK, and SSH_FXP_SYMLINK etc.
+Fixed a bug - Cannot List in the Web Client when current directory name contains "&".
+Fixed a bug - While exiting the program, an exception would occur if there were active ssh sessions.
+Fixed a bug - List content may be incomplete for all the protocols on Linux or Mac OS.
+Fixed a bug - Full path like "C:/wftplog.txt" is invalid for log filename.
+Fixed a bug - Cannot resume uploading when filename contains Unicode characters.
+
+
+Wing FTP Server v3.3.5              Released: 3/Feb/2010
+--------------------------------------------------------------
+Fixed a bug - Server might crash when removing a directory, WinSCP(SFTP-connection)only.
+Fixed a bug - Can not rename a file using SFTP with some client tools.
+Fixed a bug - On Unix like systems, the file/directory attributes of list results are incorrect using SFTP.
+Fixed a bug - Mistake of wrong file size occasionally happens when using WinSCP(SFTP-connection) to download a file.
+
+
+Wing FTP Server v3.3.4              Released: 31/Jan/2010
+--------------------------------------------------------------
+Added German language.
+Added a right menu to the Web Client's search window, then you can delete files in the search result.
+Fixed a bug - Server would crashed when client is Putty SFTP and uses command "mget". 
+Fixed a bug - Non-root user can not start wftpserver in Linux.
+Fixed a bug - When uploading file through Web Client, the increased quota size was not equal to the file size.
+Fixed a bug - The quota size will increase when overwriting the same file.
+Fixed a bug - User can not change his password when user accouts are stored by database.
+Fixed a bug - Where getting some special file or folder's attribute would fail in the SFTP transfer.
+Fixed a bug - User can not logon to the Web Client when username or password contains blanks.
+Fixed a bug - An error would occur when removing directory in the Web Client.
+
+
+Wing FTP Server v3.3.0              Released: 15/Jan/2010
+--------------------------------------------------------------
+Added a file search feature to the Web Client that allows user to recursively search for specified files. 
+Fixed a bug - batch downloader in Firefox and Safari can not show the buttons correctly.
+Fixed a bug - batch downloader's progress bar will be still 100% when file is bigger than 2GB. 
+Fixed a bug - can not download some file whose filename includes "&#" in the Web Client.
+Fixed a bug - when your virtual directory has no list permission, you can not change to that directory.
+
+
+Wing FTP Server v3.2.8              Released: 30/Dec/2009
+--------------------------------------------------------------
+Added a feature that you can block some IP(or IP range) for a while.
+Fixed a security bug - a cross site request forgery vulnerability in the web administration.
+Fixed a security bug - Linux server may crash when sending too long FTP command. 
+Fixed a bug - Windows Vista or Windows 7 can not start system service with UAC issues.
+Fixed a bug - web client for some iphone/ipod will not display correctly.
+Fixed a bug - a display issue when closing multi-files downloader in Safari 4.0.
+
+
+Wing FTP Server v3.2.4              Released: 19/Dec/2009
+--------------------------------------------------------------
+Added Mac OS X Edition, both X86 and PowerPC.
+Added Romanian language.
+Added multi-files download function for web client.
+Added a feature that you can create customizable logo for different domain.
+Added a quick search function for the web client. Using the keyboard, instantly search for files you need by typing in the first letter of the file name.
+Fixed a bug - can't start Tray Application in Windows 7.
+Fixed a bug - can't upload files in web client from Mac OS using Safari.
+Fixed a bug - a waring box will popup when changing directory from Mac OS using Safari with Chinese or Japanese.
+
+
+Wing FTP Server v3.2              Released: 22/Nov/2009
+--------------------------------------------------------------
+Added multi-files upload feature for web client.
+Added French language.
+Added Czech language.
+Added a console admin tool - WFTPConsole.exe
+Added handling Tab key in lua script editor.
+Fixed a security bug - ftp server maybe crash when using some invalid paramter for PORT command.
+Fixed a security bug - when many clients transfer files using PORT mode, ftp server maybe crash.
+Fixed a bug - can't submit too long lua script in event editor.
+Fixed a bug - can't use utf-8 characters for username in IE8 or Chrome3.
+Fixed a bug - can't specify some ip address for port listener.
+
+
+
+Wing FTP Server v3.1.2              Released: 20/Oct/2009
+--------------------------------------------------------------
+Improved some UPnP feature. 
+Added support for adding network-share user directory. 
+Fixed a sending mail bug when connecting to some SMTP Server. 
+Fixed a bug about username case-sensitive. 
+Fixed web client's directory-view is bit small in Firefox. 
+
+
+
+Wing FTP Server v3.1              Released: 12/Oct/2009
+--------------------------------------------------------------
+Added read-only administrator.
+Added create custom logo function.
+Added clear thumbnail image file function.
+Added generate random password for user account.
+Added password support for SSL private key file.
+Added create certificate signing request(CSR) file.
+Fixed can not operate directory in windows explorer.
+Fixed can not show virtual directory in FlashFXP.
+Fixed can not download files without filename extension in Web Client.
+Fixed can not Copy and Paste files in Web Client.
+Fixed can not use the variable %PathName in file uploaded event.
+Updated tray application.
+Updated language files.
+
+
+
+Wing FTP Server v3.0              Released: 1/Oct/2009
+--------------------------------------------------------------
+Changed product name from "Win FTP Server" To "Wing FTP Server". 
+Completely rewritten and redesigned software.
+Added cross platform support(Windows,Linux,Mac,Solaris,FreeBSD)
+Added web based administrator.
+Added web based client.
+Added SSH protocol support.
+Added create SSH key support.
+Added administrator console(like unix shell).
+Added task scheduler.
+Added programmable event manager.
+Added Lua scripts support.
+Added database storage(ODBC,MySQL) support.
+Added multi domain support.
+Added multi language support.
+Added administrative accounts
+Added tray icon monitor.
+Added SSL certificate manager.
+Added SSH Key manager.
+Added SMTP server manager.
+Added UPnP support.
+Added administration log support.
+Added server log support.
+Added server status report.
+Added domain status report.
+Added HTTP events manager.
+Added SSH events manager.
+Added user auto expire support.
+Added access time support.
+Added listener manager.
+Added transfer quota limit.
+Changed the tray icon.
+Changed the program icon.
+Changed the help file.
+Fixed all bugs in the version 2.4. 
+ 
+ 
+
+
+
+Win FTP Server v2.4              Released: 3/Jun/2008
+--------------------------------------------------------------
+
+Changed the tray icon.
+Changed the program icon.
+Improved the server speed.
+
+
+Win FTP Server v2.3              Released: 26/Nov/2007
+--------------------------------------------------------------
+
+Added create customized certificates support
+Fixed bug in connection time-out mechanism. 
+Fixed bug when transfer big file(over 4GB).
+
+
+Win FTP Server v2.1              Released: 19/Feb/2007
+--------------------------------------------------------------
+
+Added sfv check support.
+Addes SSL smtp server support.
+Fixed the bug in VBScripts.
+
+
+
+Win FTP Server v2.0              Released: 27/Dec/2006
+--------------------------------------------------------------
+
+Complete new user interface.
+Added event manager support.
+Added email notification support.
+Added event tray tip support.
+Added scripts (VB, JS) support.
+Added graphic view for download/upload.
+Added progress bar for file download.
+Added IP watcher.
+Added message list.
+Added Hit-O-Meter.
+Added server statistics
+Added Mode-Z support.
+Fixed some bugs in SSL connection.
+
+
+Win FTP Server v1.6              Released: 8/May/2006
+--------------------------------------------------------------
+
+Added Secure FTP (SSL) support.
+Added FEAT, OPTS, PROT, and AUTH commands support. 
+Added system service support.
+Added task schedule support.
+
+
+Win FTP Server v1.5              Released: 18/Sep/2005
+--------------------------------------------------------------
+
+Added directory cache support.
+Added free file support.
+Added log file limit support.
+Added SITE MSG command support.
+Added SITE PASSWORD command support.
+
+
+Win FTP Server v1.4              Released: 5/Apr/2005
+--------------------------------------------------------------
+
+Added dynamic IP support.
+Added get IP from website support.
+Added the tip of day.
+Added SITE CHMOD command support
+Fixed bug in LogScreen.
+
+
+Win FTP Server v1.3              Released: 23/Nov/2004
+--------------------------------------------------------------
+
+Added download/upload ratio support.
+Added file access support.
+Added connection time out support.
+Added date transfer time out support.
+Changed the log format.
+
+
+Win FTP Server v1.2              Released: 1/Jan/2004
+--------------------------------------------------------------
+
+Added disk quota support.
+Added IP access support.
+Changed the tray icon.
+Changed the tray tip text.
+Fixed PASV command error.
+Fixed some bug in virtual directory.
+
+
+Win FTP Server v1.1              Released: 15/Dec/2003
+--------------------------------------------------------------
+
+Added group support.
+Added NLST command support.
+Added "Hide files/dirs with hidden attribute" for user.
+Added virtual directory support.
+Fixed bug in using a passive mode port range.
+Fixed bug in file download speed limit.
+ 
+
+

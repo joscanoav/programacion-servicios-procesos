@@ -31,7 +31,7 @@ public class Cliente {
 
         // Leer operación del usuario
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Introduce la operación (ejemplo: 3+3): ");
+        System.out.print("Introduce la operacion (ejemplo: 3+3): ");
         String operacion = scanner.nextLine();
 
         // Enviar operación al servidor
