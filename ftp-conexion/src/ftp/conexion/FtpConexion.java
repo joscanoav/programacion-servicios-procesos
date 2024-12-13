@@ -24,7 +24,7 @@ public class FtpConexion {
         FTPClient clienteFtp = new FTPClient();
 
         try {
-            // A) Conexión al servidor
+            // 1) Conexión al servidor
             clienteFtp.connect(servidor, puerto);
             int respuesta = clienteFtp.getReplyCode();
 
@@ -33,9 +33,9 @@ public class FtpConexion {
                 return;
             }
 
-            System.out.println("Conexion establecida con éxito.");
+            System.out.println("Conexion establecida con exito.");
 
-            // B) Login al servidor
+            // 2) Login al servidor
             boolean loginSatisfactorio = clienteFtp.login(usuario, password);
 
             if (!loginSatisfactorio) {
@@ -44,7 +44,7 @@ public class FtpConexion {
             }
             System.out.println("Inicio de sesion correcto.");
 
-            // C) Listar archivos
+            // 3) Listar archivos
             // Listar archivos en la raíz
             System.out.println("Archivos en la raiz:");
             FTPFile[] archivosRaiz = clienteFtp.listFiles();
@@ -52,14 +52,14 @@ public class FtpConexion {
                 System.out.println("- " + archivo.getName());
             }
 
-            // Listar archivos en /download
+            // 4) Listar archivos en /download
             System.out.println("Archivos en /download:");
             FTPFile[] archivosDownload = clienteFtp.listFiles("/download");
             for (FTPFile archivo : archivosDownload) {
                 System.out.println("- " + archivo.getName());
             }
 
-            // D) Descargar un archivo de /download
+            // 5) Descargar un archivo de /download
             String archivoDescargar = "/download/version.txt"; // Cambia según el archivo disponible
             FileOutputStream fos = new FileOutputStream("version.txt");
             boolean descargado = clienteFtp.retrieveFile(archivoDescargar, fos);
@@ -70,7 +70,7 @@ public class FtpConexion {
                 System.out.println("Error al descargar el archivo.");
             }
 
-            // E) Subir un archivo a /upload
+            // 6) Subir un archivo a /upload
             File archivoSubir = new File("archivo.doc");
             FileWriter writer = new FileWriter(archivoSubir);
             writer.write("Este es un archivo de prueba para subir al servidor FTP.");
@@ -86,7 +86,7 @@ public class FtpConexion {
                 System.out.println("Error al subir el archivo.");
             }
 
-            // F) Desconexión del servidor
+            // 7) Desconexión del servidor
             clienteFtp.logout();
             clienteFtp.disconnect();
             System.out.println("Desconexion exitosa.");
