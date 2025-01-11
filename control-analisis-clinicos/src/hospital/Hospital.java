@@ -27,7 +27,7 @@ public class Hospital {
                 int nuevoHierro = (int) evt.getNewValue();
                 // Si el nivel de hierro es mayor a 10, generar otro análisis
                 if (nuevoHierro > 10) {
-                    System.out.println("Nivel de hierro alto: " + nuevoHierro + ". Se debe realizar otro análisis.");
+                    System.out.println("Nivel de hierro alto: " + nuevoHierro + ". Se debe realizar otro analisis.");
                 }
             }
         });
